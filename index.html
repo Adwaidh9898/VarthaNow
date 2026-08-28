@@ -4,7 +4,6 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <meta name="theme-color" content="#2563eb">
 
 <title>VarthaNow — Latest News</title>
@@ -32,12 +31,9 @@ html{
     --text:#111827;
     --muted:#6b7280;
     --border:#e5e7eb;
-
     --primary:#2563eb;
     --primary2:#4f46e5;
-
     --nav:#ffffff;
-
     --shadow:0 8px 30px rgba(15,23,42,.07);
 }
 
@@ -47,19 +43,11 @@ body.dark{
     --text:#f8fafc;
     --muted:#94a3b8;
     --border:#1f2937;
-
     --primary:#60a5fa;
     --primary2:#818cf8;
-
     --nav:#111827;
-
     --shadow:0 8px 30px rgba(0,0,0,.30);
 }
-
-
-/* =========================================================
-   BODY
-========================================================= */
 
 body{
     font-family:
@@ -72,12 +60,8 @@ body{
 
     background:var(--bg);
     color:var(--text);
-
     min-height:100vh;
-
-    transition:
-        background .25s,
-        color .25s;
+    transition:background .25s,color .25s;
 }
 
 button,
@@ -116,7 +100,7 @@ img{
 
 
 /* =========================================================
-   LOGO AREA
+   LOGO
 ========================================================= */
 
 .logo-area{
@@ -153,13 +137,11 @@ img{
 .header{
     position:sticky;
     top:0;
-
     z-index:50;
 
     background:rgba(245,247,251,.88);
 
     backdrop-filter:blur(18px);
-
     -webkit-backdrop-filter:blur(18px);
 
     border-bottom:1px solid var(--border);
@@ -171,17 +153,13 @@ body.dark .header{
 
 .header-inner{
     max-width:1200px;
-
     height:64px;
 
     margin:auto;
-
     padding:0 20px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 }
 
@@ -207,7 +185,6 @@ body.dark .header{
     border-radius:13px;
 
     background:var(--card);
-
     color:var(--text);
 
     border:1px solid var(--border);
@@ -226,14 +203,98 @@ body.dark .header{
 
 
 /* =========================================================
+   BREAKING TICKER
+========================================================= */
+
+.breaking-ticker{
+    width:100%;
+    overflow:hidden;
+
+    background:#111827;
+    color:#fff;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    display:flex;
+    align-items:center;
+
+    height:40px;
+}
+
+.ticker-label{
+    flex:none;
+
+    height:100%;
+
+    padding:0 13px;
+
+    display:flex;
+    align-items:center;
+
+    background:#ef4444;
+
+    font-size:11px;
+    font-weight:900;
+
+    letter-spacing:.5px;
+
+    position:relative;
+    z-index:2;
+}
+
+.ticker-label::before{
+    content:"";
+    width:7px;
+    height:7px;
+
+    background:#fff;
+
+    border-radius:50%;
+
+    margin-right:7px;
+
+    animation:pulse 1s infinite;
+}
+
+.ticker-track{
+    flex:1;
+    overflow:hidden;
+    white-space:nowrap;
+}
+
+.ticker-content{
+    display:inline-block;
+
+    padding-left:100%;
+
+    animation:tickerMove 28s linear infinite;
+
+    font-size:12px;
+    font-weight:650;
+}
+
+.ticker-content span{
+    margin-right:55px;
+}
+
+@keyframes tickerMove{
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-100%);
+    }
+}
+
+
+/* =========================================================
    MAIN
 ========================================================= */
 
 .app{
     max-width:1200px;
-
     margin:auto;
-
     padding-bottom:100px;
 }
 
@@ -252,17 +313,13 @@ main{
 
 .greeting small{
     color:var(--muted);
-
     font-size:12px;
-
     font-weight:700;
-
     letter-spacing:.7px;
 }
 
 .greeting h1{
     font-size:32px;
-
     line-height:1.15;
 
     margin-top:5px;
@@ -277,9 +334,7 @@ main{
 
 .search-box{
     display:flex;
-
     align-items:center;
-
     gap:10px;
 
     background:var(--card);
@@ -297,7 +352,6 @@ main{
 
 .search-icon{
     color:var(--muted);
-
     font-size:21px;
 }
 
@@ -305,11 +359,9 @@ main{
     flex:1;
 
     border:0;
-
     outline:0;
 
     background:transparent;
-
     color:var(--text);
 
     font-size:15px;
@@ -326,13 +378,11 @@ main{
 
 .categories{
     display:flex;
-
     gap:9px;
 
     overflow-x:auto;
 
     padding-bottom:8px;
-
     margin-bottom:25px;
 
     scrollbar-width:none;
@@ -356,7 +406,6 @@ main{
     color:var(--muted);
 
     font-size:13px;
-
     font-weight:750;
 
     transition:.2s;
@@ -385,14 +434,12 @@ main{
 
 
 /* =========================================================
-   SECTION HEADER
+   SECTION
 ========================================================= */
 
 .section-head{
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 
     margin-bottom:15px;
@@ -400,15 +447,12 @@ main{
 
 .section-head h2{
     font-size:20px;
-
     letter-spacing:-.5px;
 }
 
 .refresh-btn{
     display:flex;
-
     align-items:center;
-
     gap:5px;
 
     background:none;
@@ -416,7 +460,6 @@ main{
     color:var(--primary);
 
     font-weight:750;
-
     font-size:13px;
 }
 
@@ -460,7 +503,6 @@ main{
     content:"";
 
     position:absolute;
-
     inset:0;
 
     background:
@@ -488,9 +530,7 @@ main{
 
 .breaking{
     display:inline-flex;
-
     align-items:center;
-
     gap:7px;
 
     background:rgba(239,68,68,.95);
@@ -500,7 +540,6 @@ main{
     border-radius:8px;
 
     font-size:10px;
-
     font-weight:850;
 
     text-transform:uppercase;
@@ -537,7 +576,6 @@ main{
 
 .featured-meta{
     display:flex;
-
     gap:9px;
 
     margin-top:12px;
@@ -621,7 +659,6 @@ main{
     color:#fff;
 
     display:grid;
-
     place-items:center;
 
     backdrop-filter:blur(6px);
@@ -639,7 +676,6 @@ main{
     text-transform:uppercase;
 
     font-size:10px;
-
     font-weight:850;
 
     letter-spacing:.7px;
@@ -687,6 +723,140 @@ main{
 
 
 /* =========================================================
+   TRENDING LOCKED SECTION
+========================================================= */
+
+.trending-section{
+    margin-top:35px;
+}
+
+.trending-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:15px;
+}
+
+.trending-header h2{
+    font-size:21px;
+    letter-spacing:-.5px;
+}
+
+.trending-badge{
+    background:#fee2e2;
+    color:#dc2626;
+
+    padding:6px 9px;
+
+    border-radius:8px;
+
+    font-size:10px;
+    font-weight:900;
+}
+
+body.dark .trending-badge{
+    background:#451a1a;
+    color:#fca5a5;
+}
+
+.trending-locked{
+    background:
+        linear-gradient(
+            135deg,
+            var(--card),
+            rgba(37,99,235,.06)
+        );
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    padding:24px 20px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+}
+
+.lock-icon{
+    font-size:36px;
+    margin-bottom:8px;
+}
+
+.trending-locked h3{
+    font-size:18px;
+    margin-bottom:7px;
+}
+
+.trending-locked p{
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.5;
+
+    max-width:450px;
+
+    margin:0 auto 16px;
+}
+
+.unlock-btn{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ef4444,
+            #dc2626
+        );
+
+    color:white;
+
+    padding:13px 18px;
+
+    border-radius:13px;
+
+    font-size:13px;
+
+    font-weight:850;
+
+    box-shadow:
+        0 7px 18px
+        rgba(239,68,68,.22);
+}
+
+.unlock-btn:active{
+    transform:scale(.97);
+}
+
+.trending-timer{
+    margin-top:13px;
+
+    color:var(--primary);
+
+    font-size:13px;
+
+    font-weight:800;
+
+    min-height:18px;
+}
+
+.trending-grid{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:15px;
+}
+
+
+/* =========================================================
    LOADING
 ========================================================= */
 
@@ -727,13 +897,11 @@ main{
 
 .empty-icon{
     font-size:45px;
-
     margin-bottom:12px;
 }
 
 .empty h3{
     color:var(--text);
-
     margin-bottom:6px;
 }
 
@@ -922,17 +1090,9 @@ main{
     transition:.2s;
 }
 
-.whatsapp-share:hover{
-    filter:brightness(.95);
-
-    transform:translateY(-1px);
-}
-
 .whatsapp-logo{
     width:20px;
     height:20px;
-
-    display:block;
 }
 
 
@@ -953,7 +1113,7 @@ main{
 
     padding:10px;
 
-    margin-top:20px;
+    margin-top:25px;
 
     overflow:hidden;
 }
@@ -978,8 +1138,7 @@ main{
 
     height:68px;
 
-    background:
-        rgba(255,255,255,.93);
+    background:rgba(255,255,255,.93);
 
     backdrop-filter:blur(18px);
 
@@ -1077,6 +1236,143 @@ body.dark .bottom-nav{
 
 
 /* =========================================================
+   AUTO POPUP
+========================================================= */
+
+.reward-overlay{
+    position:fixed;
+
+    inset:0;
+
+    z-index:500;
+
+    background:rgba(0,0,0,.58);
+
+    backdrop-filter:blur(7px);
+
+    -webkit-backdrop-filter:blur(7px);
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+}
+
+.reward-overlay.active{
+    display:flex;
+}
+
+.reward-popup{
+    width:min(420px,100%);
+
+    background:var(--card);
+
+    color:var(--text);
+
+    border:1px solid var(--border);
+
+    border-radius:24px;
+
+    padding:27px 22px 23px;
+
+    text-align:center;
+
+    box-shadow:
+        0 25px 80px
+        rgba(0,0,0,.28);
+
+    animation:popupIn .25s ease;
+}
+
+@keyframes popupIn{
+    from{
+        opacity:0;
+        transform:scale(.94) translateY(10px);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
+}
+
+.reward-fire{
+    font-size:42px;
+    margin-bottom:7px;
+}
+
+.reward-popup h2{
+    font-size:23px;
+    margin-bottom:8px;
+    letter-spacing:-.5px;
+}
+
+.reward-popup p{
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.6;
+
+    margin-bottom:18px;
+}
+
+.reward-watch-btn{
+    width:100%;
+
+    padding:14px 16px;
+
+    border-radius:14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ef4444,
+            #dc2626
+        );
+
+    color:white;
+
+    font-size:13px;
+
+    font-weight:900;
+
+    box-shadow:
+        0 8px 20px
+        rgba(239,68,68,.25);
+}
+
+.reward-close{
+    display:block;
+
+    margin:13px auto 0;
+
+    background:none;
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    font-weight:700;
+}
+
+.reward-status{
+    margin-top:13px;
+
+    min-height:20px;
+
+    color:var(--primary);
+
+    font-size:12px;
+
+    font-weight:800;
+}
+
+
+/* =========================================================
    DESKTOP
 ========================================================= */
 
@@ -1092,7 +1388,6 @@ body.dark .bottom-nav{
 
     .bottom-nav{
         border-radius:18px;
-
         bottom:18px;
     }
 
@@ -1132,7 +1427,6 @@ body.dark .bottom-nav{
 
     .featured{
         height:335px;
-
         border-radius:20px;
     }
 
@@ -1167,6 +1461,14 @@ body.dark .bottom-nav{
     .read-original,
     .whatsapp-share{
         width:100%;
+    }
+
+    .trending-grid{
+        grid-template-columns:1fr;
+    }
+
+    .ticker-content{
+        animation-duration:23s;
     }
 
 }
@@ -1205,7 +1507,6 @@ body.dark .bottom-nav{
 
     *{
         animation-duration:.01ms !important;
-
         transition-duration:.01ms !important;
     }
 
@@ -1287,15 +1588,44 @@ body.dark .bottom-nav{
 
 
 <!-- =======================================================
-     MAIN APP
+     BREAKING NEWS TICKER
+======================================================= -->
+
+<div class="breaking-ticker">
+
+    <div class="ticker-label">
+        BREAKING
+    </div>
+
+    <div class="ticker-track">
+
+        <div
+            class="ticker-content"
+            id="tickerContent"
+        >
+            <span>
+                🔥 Loading latest trending news...
+            </span>
+
+            <span>
+                📰 VarthaNow — Latest News
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =======================================================
+     MAIN
 ======================================================= -->
 
 <div class="app">
 
 <main>
 
-
-    <!-- GREETING -->
 
     <div class="greeting">
 
@@ -1439,6 +1769,75 @@ body.dark .bottom-nav{
     ></div>
 
 
+    <!-- ===================================================
+         HIDDEN TRENDING NEWS
+    ==================================================== -->
+
+    <section
+        class="trending-section"
+        id="trendingSection"
+    >
+
+        <div class="trending-header">
+
+            <h2>
+                🔥 Trending Now
+            </h2>
+
+            <span class="trending-badge">
+                EXTRA
+            </span>
+
+        </div>
+
+
+        <!-- LOCKED STATE -->
+
+        <div
+            class="trending-locked"
+            id="trendingLocked"
+        >
+
+            <div class="lock-icon">
+                🔒
+            </div>
+
+            <h3>
+                More Trending Stories
+            </h3>
+
+            <p>
+                Unlock 3 additional trending stories
+                by visiting our sponsor and completing
+                the short VarthaNow countdown.
+            </p>
+
+            <button
+                class="unlock-btn"
+                onclick="startTrendingUnlock()"
+            >
+                🔥 WATCH AD TO UNLOCK
+            </button>
+
+            <div
+                class="trending-timer"
+                id="trendingTimer"
+            ></div>
+
+        </div>
+
+
+        <!-- UNLOCKED STATE -->
+
+        <div
+            class="trending-grid"
+            id="trendingGrid"
+            style="display:none;"
+        ></div>
+
+    </section>
+
+
     <!-- BOTTOM AD -->
 
     <div class="bottom-ad">
@@ -1500,6 +1899,57 @@ body.dark .bottom-nav{
         </div>
 
         <div id="articleContent"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =======================================================
+     REWARD POPUP
+======================================================= -->
+
+<div
+    class="reward-overlay"
+    id="rewardOverlay"
+>
+
+    <div class="reward-popup">
+
+        <div class="reward-fire">
+            🔥
+        </div>
+
+        <h2>
+            See Trending News
+        </h2>
+
+        <p>
+            Want to see what's trending right now?
+            Visit our sponsor and complete the short
+            VarthaNow countdown to unlock 3 extra
+            trending stories.
+        </p>
+
+        <button
+            class="reward-watch-btn"
+            id="rewardWatchBtn"
+            onclick="openRewardAd()"
+        >
+            CLICK HERE TO WATCH AD
+        </button>
+
+        <div
+            class="reward-status"
+            id="rewardStatus"
+        ></div>
+
+        <button
+            class="reward-close"
+            onclick="closeRewardPopup()"
+        >
+            Maybe later
+        </button>
 
     </div>
 
@@ -1602,6 +2052,14 @@ const NEWSDATA_BASE =
 
 
 /* =========================================================
+   REWARD AD URL
+========================================================= */
+
+const REWARD_AD_URL =
+    "https://omg10.com/4/11657025";
+
+
+/* =========================================================
    APP STATE
 ========================================================= */
 
@@ -1616,6 +2074,22 @@ let savedArticles =
 
 
 /* =========================================================
+   REWARD STATE
+========================================================= */
+
+let rewardTimer = null;
+
+let rewardSeconds = 10;
+
+let rewardAdOpened = false;
+
+let rewardUnlocked =
+    localStorage.getItem(
+        "varthanowTrendingUnlocked"
+    ) === "true";
+
+
+/* =========================================================
    FALLBACK IMAGE
 ========================================================= */
 
@@ -1624,7 +2098,7 @@ const FALLBACK_IMAGE =
 
 
 /* =========================================================
-   CATEGORY CONFIGURATION
+   CATEGORY CONFIG
 ========================================================= */
 
 const categoryConfig = {
@@ -1700,6 +2174,8 @@ document.addEventListener(
 
         loadNews();
 
+        setupRewardPopup();
+
         checkSharedArticle();
 
     }
@@ -1716,13 +2192,9 @@ function updateDate(){
         new Date();
 
     const options = {
-
         weekday:"long",
-
         month:"long",
-
         day:"numeric"
-
     };
 
     document.getElementById(
@@ -1735,6 +2207,353 @@ function updateDate(){
                 options
             )
             .toUpperCase();
+
+}
+
+
+/* =========================================================
+   AUTO REWARD POPUP
+========================================================= */
+
+function setupRewardPopup(){
+
+    /*
+     * Don't show the popup again after the user
+     * has already unlocked the trending section.
+     */
+
+    if(rewardUnlocked){
+
+        unlockTrendingNews();
+
+        return;
+
+    }
+
+
+    /*
+     * Show automatically after 5 seconds.
+     */
+
+    setTimeout(
+        function(){
+
+            if(
+                !rewardUnlocked &&
+                !rewardAdOpened
+            ){
+
+                document
+                    .getElementById(
+                        "rewardOverlay"
+                    )
+                    .classList
+                    .add("active");
+
+            }
+
+        },
+        5000
+    );
+
+}
+
+
+/* =========================================================
+   OPEN REWARD AD
+========================================================= */
+
+function openRewardAd(){
+
+    rewardAdOpened = true;
+
+    const status =
+        document.getElementById(
+            "rewardStatus"
+        );
+
+    const button =
+        document.getElementById(
+            "rewardWatchBtn"
+        );
+
+
+    /*
+     * Open sponsor in a new tab.
+     */
+
+    window.open(
+        REWARD_AD_URL,
+        "_blank",
+        "noopener,noreferrer"
+    );
+
+
+    /*
+     * Start the VarthaNow-side countdown.
+     */
+
+    rewardSeconds = 10;
+
+    button.disabled = true;
+
+    button.style.opacity = ".65";
+
+    status.textContent =
+        "⏳ Complete the 10-second countdown here...";
+
+
+    clearInterval(
+        rewardTimer
+    );
+
+
+    rewardTimer =
+        setInterval(
+            function(){
+
+                rewardSeconds--;
+
+                if(
+                    rewardSeconds > 0
+                ){
+
+                    status.textContent =
+                        "⏳ Unlocking in " +
+                        rewardSeconds +
+                        " seconds...";
+
+                }
+                else{
+
+                    clearInterval(
+                        rewardTimer
+                    );
+
+                    status.textContent =
+                        "✅ Trending news unlocked!";
+
+                    rewardUnlocked = true;
+
+                    localStorage.setItem(
+                        "varthanowTrendingUnlocked",
+                        "true"
+                    );
+
+                    setTimeout(
+                        function(){
+
+                            closeRewardPopup();
+
+                            unlockTrendingNews();
+
+                            showToast(
+                                "🔥 Trending news unlocked!"
+                            );
+
+                        },
+                        700
+                    );
+
+                }
+
+            },
+            1000
+        );
+
+}
+
+
+/* =========================================================
+   CLOSE REWARD POPUP
+========================================================= */
+
+function closeRewardPopup(){
+
+    document
+        .getElementById(
+            "rewardOverlay"
+        )
+        .classList
+        .remove("active");
+
+}
+
+
+/* =========================================================
+   START TRENDING UNLOCK FROM SECTION
+========================================================= */
+
+function startTrendingUnlock(){
+
+    if(rewardUnlocked){
+
+        unlockTrendingNews();
+
+        return;
+
+    }
+
+    document
+        .getElementById(
+            "rewardOverlay"
+        )
+        .classList
+        .add("active");
+
+}
+
+
+/* =========================================================
+   UNLOCK TRENDING
+========================================================= */
+
+function unlockTrendingNews(){
+
+    const locked =
+        document.getElementById(
+            "trendingLocked"
+        );
+
+    const grid =
+        document.getElementById(
+            "trendingGrid"
+        );
+
+
+    locked.style.display =
+        "none";
+
+    grid.style.display =
+        "grid";
+
+
+    renderTrendingNews();
+
+}
+
+
+/* =========================================================
+   TRENDING NEWS
+========================================================= */
+
+function renderTrendingNews(){
+
+    const grid =
+        document.getElementById(
+            "trendingGrid"
+        );
+
+    /*
+     * Use additional articles from the API.
+     *
+     * If the current API result has enough articles,
+     * use the next three.
+     */
+
+    let trending =
+        articles.slice(4,7);
+
+
+    /*
+     * If there aren't three additional stories,
+     * use the first three available articles.
+     */
+
+    if(trending.length < 3){
+
+        trending =
+            articles.slice(0,3);
+
+    }
+
+
+    if(trending.length === 0){
+
+        grid.innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-icon">
+                    🔥
+                </div>
+
+                <h3>
+                    Trending stories unavailable
+                </h3>
+
+                <p>
+                    Refresh the news and try again.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    grid.innerHTML =
+        trending
+            .map(createTrendingCard)
+            .join("");
+
+}
+
+
+/* =========================================================
+   TRENDING CARD
+========================================================= */
+
+function createTrendingCard(article){
+
+    return `
+
+        <article
+            class="news-card"
+            onclick="openArticle('${escapeJS(article.id)}')"
+        >
+
+            <div class="card-image">
+
+                <img
+                    src="${escapeHTML(article.image)}"
+                    alt=""
+                    loading="lazy"
+                    onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'"
+                >
+
+            </div>
+
+            <div class="card-content">
+
+                <div class="card-category">
+                    🔥 TRENDING
+                </div>
+
+                <h3>
+                    ${escapeHTML(article.title)}
+                </h3>
+
+                <div class="card-meta">
+
+                    <span>
+                        ${escapeHTML(article.source)}
+                    </span>
+
+                    <span>
+                        ${escapeHTML(article.time)}
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    `;
 
 }
 
@@ -1889,19 +2708,14 @@ async function loadNews(){
             "1"
         );
 
+
         const url =
             `${NEWSDATA_BASE}/latest?${params}`;
 
-        console.log(
-            "Fetching NewsData.io:",
-            url.replace(
-                API_KEY,
-                "HIDDEN"
-            )
-        );
 
         const response =
             await fetch(url);
+
 
         if(!response.ok){
 
@@ -1911,13 +2725,10 @@ async function loadNews(){
 
         }
 
+
         const data =
             await response.json();
 
-        console.log(
-            "NewsData response:",
-            data
-        );
 
         if(
             data.status &&
@@ -1956,6 +2767,7 @@ async function loadNews(){
 
         }
 
+
         if(
             !data.results ||
             !Array.isArray(data.results)
@@ -1966,6 +2778,7 @@ async function loadNews(){
             );
 
         }
+
 
         articles =
             data.results
@@ -2020,13 +2833,18 @@ async function loadNews(){
                     }
                 );
 
+
         renderNews();
 
-        /*
-         * If this page was opened from a WhatsApp
-         * shared article link, try opening it after
-         * the news has loaded.
-         */
+        updateTicker();
+
+        if(rewardUnlocked){
+
+            unlockTrendingNews();
+
+        }
+
+
         checkSharedArticle();
 
     }
@@ -2047,6 +2865,50 @@ async function loadNews(){
 
 
 /* =========================================================
+   UPDATE TICKER
+========================================================= */
+
+function updateTicker(){
+
+    const ticker =
+        document.getElementById(
+            "tickerContent"
+        );
+
+    if(
+        !articles.length
+    ){
+
+        return;
+
+    }
+
+
+    const stories =
+        articles
+            .slice(0,8)
+            .map(
+                function(article){
+
+                    return `
+                        <span>
+                            🔥 ${escapeHTML(article.title)}
+                        </span>
+                    `;
+
+                }
+            )
+            .join("");
+
+
+    ticker.innerHTML =
+        stories +
+        stories;
+
+}
+
+
+/* =========================================================
    RENDER NEWS
 ========================================================= */
 
@@ -2062,8 +2924,10 @@ function renderNews(){
             "featuredContainer"
         );
 
+
     let filtered =
         [...articles];
+
 
     const search =
         document
@@ -2073,6 +2937,7 @@ function renderNews(){
             .value
             .trim()
             .toLowerCase();
+
 
     if(search){
 
@@ -2105,6 +2970,7 @@ function renderNews(){
 
     }
 
+
     if(filtered.length === 0){
 
         featured.innerHTML = "";
@@ -2133,8 +2999,10 @@ function renderNews(){
 
     }
 
+
     const first =
         filtered[0];
+
 
     featured.innerHTML = `
 
@@ -2186,8 +3054,10 @@ function renderNews(){
 
     `;
 
+
     const rest =
         filtered.slice(1);
+
 
     grid.innerHTML =
         rest
@@ -2207,6 +3077,7 @@ function createCard(article){
         savedArticles.includes(
             article.id
         );
+
 
     return `
 
@@ -2235,6 +3106,7 @@ function createCard(article){
                 </button>
 
             </div>
+
 
             <div class="card-content">
 
@@ -2307,16 +3179,19 @@ function openArticle(id){
             }
         );
 
+
     if(!article){
 
         return;
 
     }
 
+
     const saved =
         savedArticles.includes(
             article.id
         );
+
 
     document.getElementById(
         "articleContent"
@@ -2330,6 +3205,7 @@ function openArticle(id){
 
         </div>
 
+
         <h1 class="article-title">
 
             ${escapeHTML(
@@ -2337,6 +3213,7 @@ function openArticle(id){
             )}
 
         </h1>
+
 
         <div class="article-meta">
 
@@ -2374,12 +3251,14 @@ function openArticle(id){
 
         </div>
 
+
         <img
             class="article-image"
             src="${escapeHTML(article.image)}"
             alt=""
             onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'"
         >
+
 
         <div class="article-description">
 
@@ -2388,6 +3267,7 @@ function openArticle(id){
             )}
 
         </div>
+
 
         <div class="article-buttons">
 
@@ -2423,11 +3303,14 @@ function openArticle(id){
 
     `;
 
+
     document
         .getElementById(
             "articleView"
         )
-        .classList.add("active");
+        .classList
+        .add("active");
+
 
     document.body.style.overflow =
         "hidden";
@@ -2445,14 +3328,14 @@ function closeArticle(){
         .getElementById(
             "articleView"
         )
-        .classList.remove("active");
+        .classList
+        .remove("active");
+
 
     document.body.style.overflow =
         "";
 
-    /*
-     * Remove article hash when going back.
-     */
+
     if(
         window.location.hash
             .startsWith("#article=")
@@ -2478,6 +3361,7 @@ function shareWhatsApp(event,id){
 
     event.preventDefault();
 
+
     const article =
         articles.find(
             function(item){
@@ -2487,6 +3371,7 @@ function shareWhatsApp(event,id){
 
             }
         );
+
 
     if(!article){
 
@@ -2498,17 +3383,6 @@ function shareWhatsApp(event,id){
 
     }
 
-
-    /*
-     * IMPORTANT:
-     *
-     * We ONLY put the article ID in the URL.
-     *
-     * We DO NOT put the title, description,
-     * image, source, etc. in the URL.
-     *
-     * This keeps the shared link very short.
-     */
 
     const shortLink =
         window.location.origin +
@@ -2544,13 +3418,14 @@ function shareWhatsApp(event,id){
 
 
 /* =========================================================
-   CHECK SHARED ARTICLE
+   SHARED ARTICLE
 ========================================================= */
 
 function checkSharedArticle(){
 
     const hash =
         window.location.hash;
+
 
     if(
         !hash.startsWith("#article=")
@@ -2576,6 +3451,7 @@ function checkSharedArticle(){
 
     let articleId = "";
 
+
     try{
 
         articleId =
@@ -2591,17 +3467,6 @@ function checkSharedArticle(){
 
     }
 
-
-    if(!articleId){
-
-        return;
-
-    }
-
-
-    /*
-     * Wait until NewsData articles are available.
-     */
 
     const article =
         articles.find(
@@ -2648,7 +3513,7 @@ function setupSearch(){
 
 
 /* =========================================================
-   SAVE ARTICLE
+   SAVE
 ========================================================= */
 
 function toggleSave(id){
@@ -2681,6 +3546,7 @@ function toggleSave(id){
 
     }
 
+
     localStorage.setItem(
         "savedArticles",
         JSON.stringify(
@@ -2688,18 +3554,20 @@ function toggleSave(id){
         )
     );
 
+
     renderNews();
 
 }
 
 
 /* =========================================================
-   SAVED ARTICLES
+   SAVED
 ========================================================= */
 
 function showSaved(button){
 
     setActiveNav(button);
+
 
     const saved =
         articles.filter(
@@ -2713,14 +3581,17 @@ function showSaved(button){
             }
         );
 
+
     document.getElementById(
         "sectionTitle"
     ).textContent =
         "Saved Articles";
 
+
     document.getElementById(
         "featuredContainer"
     ).innerHTML = "";
+
 
     if(saved.length === 0){
 
@@ -2751,6 +3622,7 @@ function showSaved(button){
 
     }
 
+
     document.getElementById(
         "newsGrid"
     ).innerHTML =
@@ -2769,8 +3641,10 @@ function navHome(button){
 
     setActiveNav(button);
 
+
     currentCategory =
         "all";
+
 
     document
         .querySelectorAll(".category")
@@ -2783,6 +3657,7 @@ function navHome(button){
             }
         );
 
+
     document
         .querySelector(
             '[data-category="all"]'
@@ -2790,12 +3665,15 @@ function navHome(button){
         .classList
         .add("active");
 
+
     document.getElementById(
         "sectionTitle"
     ).textContent =
         "Top Stories";
 
+
     loadNews();
+
 
     window.scrollTo({
 
@@ -2815,6 +3693,7 @@ function navHome(button){
 function scrollCategories(button){
 
     setActiveNav(button);
+
 
     document
         .getElementById(
@@ -2839,12 +3718,15 @@ function focusSearch(button){
 
     setActiveNav(button);
 
+
     const input =
         document.getElementById(
             "searchInput"
         );
 
+
     input.focus();
+
 
     window.scrollTo({
 
@@ -2873,6 +3755,7 @@ function setActiveNav(button){
 
             }
         );
+
 
     button.classList
         .add("active");
@@ -2905,9 +3788,11 @@ function toggleTheme(){
         .classList
         .toggle("dark");
 
+
     const dark =
         document.body.classList
             .contains("dark");
+
 
     localStorage.setItem(
         "theme",
@@ -2916,13 +3801,14 @@ function toggleTheme(){
             : "light"
     );
 
+
     updateThemeIcon();
 
 }
 
 
 /* =========================================================
-   UPDATE THEME ICON
+   THEME ICON
 ========================================================= */
 
 function updateThemeIcon(){
@@ -2930,6 +3816,7 @@ function updateThemeIcon(){
     const dark =
         document.body.classList
             .contains("dark");
+
 
     document.getElementById(
         "themeBtn"
@@ -2952,6 +3839,7 @@ function loadTheme(){
             "theme"
         );
 
+
     if(theme === "dark"){
 
         document.body
@@ -2960,13 +3848,14 @@ function loadTheme(){
 
     }
 
+
     updateThemeIcon();
 
 }
 
 
 /* =========================================================
-   LOADING UI
+   LOADING
 ========================================================= */
 
 function showLoading(){
@@ -2980,6 +3869,7 @@ function showLoading(){
         ></div>
 
     `;
+
 
     document.getElementById(
         "newsGrid"
@@ -3040,7 +3930,7 @@ function showLoading(){
 
 
 /* =========================================================
-   ERROR UI
+   ERROR
 ========================================================= */
 
 function showError(message){
@@ -3048,6 +3938,7 @@ function showError(message){
     document.getElementById(
         "featuredContainer"
     ).innerHTML = "";
+
 
     document.getElementById(
         "newsGrid"
@@ -3100,6 +3991,7 @@ function showError(message){
 
 let toastTimer;
 
+
 function showToast(message){
 
     const toast =
@@ -3107,15 +3999,19 @@ function showToast(message){
             "toast"
         );
 
+
     toast.textContent =
         message;
+
 
     toast.classList
         .add("show");
 
+
     clearTimeout(
         toastTimer
     );
+
 
     toastTimer =
         setTimeout(
@@ -3143,8 +4039,10 @@ function formatTime(dateString){
 
     }
 
+
     const date =
         new Date(dateString);
+
 
     if(
         Number.isNaN(
@@ -3156,8 +4054,10 @@ function formatTime(dateString){
 
     }
 
+
     const now =
         new Date();
+
 
     const difference =
         Math.floor(
@@ -3166,11 +4066,13 @@ function formatTime(dateString){
             ) / 60000
         );
 
+
     if(difference < 1){
 
         return "Just now";
 
     }
+
 
     if(difference < 60){
 
@@ -3178,10 +4080,12 @@ function formatTime(dateString){
 
     }
 
+
     const hours =
         Math.floor(
             difference / 60
         );
+
 
     if(hours < 24){
 
@@ -3189,16 +4093,19 @@ function formatTime(dateString){
 
     }
 
+
     const days =
         Math.floor(
             hours / 24
         );
+
 
     if(days < 7){
 
         return `${days} day${days > 1 ? "s" : ""} ago`;
 
     }
+
 
     return date.toLocaleDateString(
         "en-IN",
@@ -3222,6 +4129,7 @@ function capitalize(text){
         return "";
 
     }
+
 
     return text.charAt(0).toUpperCase()
         + text.slice(1);
@@ -3266,7 +4174,7 @@ function escapeHTML(text){
 
 
 /* =========================================================
-   JAVASCRIPT STRING ESCAPE
+   JS ESCAPE
 ========================================================= */
 
 function escapeJS(text){
@@ -3297,7 +4205,7 @@ function escapeJS(text){
 
 
 /* =========================================================
-   BROWSER BACK BUTTON
+   HASH CHANGE
 ========================================================= */
 
 window.addEventListener(
@@ -3328,6 +4236,31 @@ window.addEventListener(
 
     }
 );
+
+
+/* =========================================================
+   PREVENT POPUP CLOSE BY OUTSIDE CLICK
+========================================================= */
+
+document
+    .getElementById(
+        "rewardOverlay"
+    )
+    .addEventListener(
+        "click",
+        function(event){
+
+            if(
+                event.target === this &&
+                !rewardAdOpened
+            ){
+
+                closeRewardPopup();
+
+            }
+
+        }
+    );
 
 </script>
 
