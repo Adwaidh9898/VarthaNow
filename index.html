@@ -796,7 +796,7 @@ main{
 
 
 /* =========================================================
-   TRENDING LOCKED SECTION
+   TRENDING
 ========================================================= */
 
 .trending-section{
@@ -1756,8 +1756,6 @@ body.dark .bottom-nav{
 <main>
 
 
-    <!-- GREETING -->
-
     <div class="greeting">
 
         <small id="todayText">
@@ -1770,8 +1768,6 @@ body.dark .bottom-nav{
 
     </div>
 
-
-    <!-- SEARCH -->
 
     <div class="search-box">
 
@@ -1788,8 +1784,6 @@ body.dark .bottom-nav{
 
     </div>
 
-
-    <!-- CATEGORIES -->
 
     <div
         class="categories"
@@ -1869,8 +1863,6 @@ body.dark .bottom-nav{
     </div>
 
 
-    <!-- SECTION -->
-
     <div class="section-head">
 
         <h2 id="sectionTitle">
@@ -1887,12 +1879,8 @@ body.dark .bottom-nav{
     </div>
 
 
-    <!-- FEATURED -->
-
     <div id="featuredContainer"></div>
 
-
-    <!-- NEWS -->
 
     <div
         class="news-grid"
@@ -1928,8 +1916,6 @@ body.dark .bottom-nav{
 
     </section>
 
-
-    <!-- BOTTOM AD -->
 
     <div class="bottom-ad">
 
@@ -2245,31 +2231,22 @@ const REWARD_AD_URL =
 const REWARD_SECONDS =
     10;
 
-let rewardTimerInterval =
-    null;
+let rewardTimerInterval = null;
 
 
-/*
- * Stores reward information for the current day.
- *
- * The timestamp is NOT reset when the user closes
- * the popup or comes back from the ad.
- */
+/* =========================================================
+   DAILY REWARD
+========================================================= */
 
 function getTodayKey(){
 
-    const now =
-        new Date();
+    const now = new Date();
 
     return now.getFullYear() +
         "-" +
-        String(
-            now.getMonth() + 1
-        ).padStart(2,"0") +
+        String(now.getMonth() + 1).padStart(2,"0") +
         "-" +
-        String(
-            now.getDate()
-        ).padStart(2,"0");
+        String(now.getDate()).padStart(2,"0");
 
 }
 
@@ -2297,10 +2274,6 @@ function getRewardData(){
 
     }
 
-
-    /*
-     * New day = completely reset.
-     */
 
     if(
         !data ||
@@ -2339,14 +2312,15 @@ function saveRewardData(data){
 }
 
 
-/*
- * Check if the reward has already been completed.
- */
+/* =========================================================
+   CHECK REWARD
+========================================================= */
 
 function checkRewardStatus(){
 
     const data =
         getRewardData();
+
 
     if(data.unlocked){
 
@@ -2357,11 +2331,6 @@ function checkRewardStatus(){
     }
 
 
-    /*
-     * If an ad session was started earlier,
-     * calculate the elapsed time.
-     */
-
     if(data.startedAt){
 
         const elapsed =
@@ -2371,6 +2340,7 @@ function checkRewardStatus(){
                     data.startedAt
                 ) / 1000
             );
+
 
         if(
             elapsed >= REWARD_SECONDS
@@ -2390,7 +2360,7 @@ function checkRewardStatus(){
 
 
 /* =========================================================
-   START REWARD AD
+   START REWARD
 ========================================================= */
 
 function startRewardAd(){
@@ -2400,8 +2370,12 @@ function startRewardAd(){
 
 
     /*
-     * If this is the first click,
-     * save the exact start timestamp.
+     * IMPORTANT:
+     *
+     * The timestamp is saved only once.
+     *
+     * Closing the popup, switching tabs,
+     * or returning later does NOT reset it.
      */
 
     if(!data.startedAt){
@@ -2415,21 +2389,29 @@ function startRewardAd(){
 
 
     /*
-     * Open the ad.
+     * Open ad link.
      */
 
-    window.open(
-        REWARD_AD_URL,
-        "_blank",
-        "noopener,noreferrer"
-    );
+    const adWindow =
+        window.open(
+            REWARD_AD_URL,
+            "_blank",
+            "noopener,noreferrer"
+        );
 
 
     /*
-     * Start/update the timer immediately.
+     * If browser blocks popup,
+     * open in same tab as fallback.
      */
 
-    updateRewardTimer();
+    if(!adWindow){
+
+        window.location.href =
+            REWARD_AD_URL;
+
+    }
+
 
     document
         .getElementById(
@@ -2439,10 +2421,8 @@ function startRewardAd(){
         .add("show");
 
 
-    /*
-     * Keep checking even after returning
-     * to VarthaNow.
-     */
+    updateRewardTimer();
+
 
     if(rewardTimerInterval){
 
@@ -2451,6 +2431,7 @@ function startRewardAd(){
         );
 
     }
+
 
     rewardTimerInterval =
         setInterval(
@@ -2466,7 +2447,7 @@ function startRewardAd(){
 
 
 /* =========================================================
-   UPDATE REWARD TIMER
+   TIMER
 ========================================================= */
 
 function updateRewardTimer(){
@@ -2474,11 +2455,13 @@ function updateRewardTimer(){
     const data =
         getRewardData();
 
+
     if(!data.startedAt){
 
         return;
 
     }
+
 
     const elapsed =
         Math.floor(
@@ -2488,6 +2471,7 @@ function updateRewardTimer(){
             ) / 1000
         );
 
+
     const remaining =
         Math.max(
             0,
@@ -2495,10 +2479,18 @@ function updateRewardTimer(){
         );
 
 
-    document.getElementById(
-        "rewardTimer"
-    ).textContent =
-        remaining;
+    const timer =
+        document.getElementById(
+            "rewardTimer"
+        );
+
+
+    if(timer){
+
+        timer.textContent =
+            remaining;
+
+    }
 
 
     if(remaining <= 0){
@@ -2506,6 +2498,7 @@ function updateRewardTimer(){
         data.unlocked = true;
 
         saveRewardData(data);
+
 
         if(rewardTimerInterval){
 
@@ -2517,11 +2510,14 @@ function updateRewardTimer(){
 
         }
 
+
         unlockTrending();
+
 
         showToast(
             "🔥 Trending News unlocked!"
         );
+
 
         setTimeout(
             function(){
@@ -2548,9 +2544,11 @@ function unlockTrending(){
             "trendingSection"
         );
 
+
     section.classList.add(
         "show"
     );
+
 
     renderTrending();
 
@@ -2558,7 +2556,7 @@ function unlockTrending(){
 
 
 /* =========================================================
-   RENDER TRENDING
+   TRENDING
 ========================================================= */
 
 function renderTrending(){
@@ -2567,6 +2565,7 @@ function renderTrending(){
         document.getElementById(
             "trendingGrid"
         );
+
 
     if(!articles.length){
 
@@ -2577,14 +2576,8 @@ function renderTrending(){
     }
 
 
-    /*
-     * Use a few different articles as
-     * the trending list.
-     */
-
     const trending =
-        articles
-            .slice(0,5);
+        articles.slice(0,5);
 
 
     grid.innerHTML =
@@ -2608,19 +2601,13 @@ function renderTrending(){
                             <div class="trending-info">
 
                                 <h3>
-                                    ${escapeHTML(
-                                        article.title
-                                    )}
+                                    ${escapeHTML(article.title)}
                                 </h3>
 
                                 <span>
-                                    ${escapeHTML(
-                                        article.source
-                                    )}
+                                    ${escapeHTML(article.source)}
                                     •
-                                    ${escapeHTML(
-                                        article.time
-                                    )}
+                                    ${escapeHTML(article.time)}
                                 </span>
 
                             </div>
@@ -2637,7 +2624,7 @@ function renderTrending(){
 
 
 /* =========================================================
-   SHOW REWARD POPUP
+   REWARD POPUP
 ========================================================= */
 
 function showRewardPopup(){
@@ -2652,11 +2639,6 @@ function showRewardPopup(){
 
     }
 
-
-    /*
-     * If already counting, show the current
-     * remaining time rather than restarting.
-     */
 
     document
         .getElementById(
@@ -2675,7 +2657,9 @@ function showRewardPopup(){
             .classList
             .add("show");
 
+
         updateRewardTimer();
+
 
         if(!rewardTimerInterval){
 
@@ -2697,7 +2681,7 @@ function showRewardPopup(){
 
 
 /* =========================================================
-   CLOSE REWARD POPUP
+   CLOSE POPUP
 ========================================================= */
 
 function closeRewardPopup(){
@@ -2713,17 +2697,14 @@ function closeRewardPopup(){
 
 
 /* =========================================================
-   AUTOMATIC POPUP AFTER 5 SECONDS
+   AUTOMATIC POPUP
 ========================================================= */
 
 function setupRewardPopup(){
 
-    /*
-     * Do not show if today's reward is already unlocked.
-     */
-
     const data =
         getRewardData();
+
 
     if(data.unlocked){
 
@@ -2732,10 +2713,6 @@ function setupRewardPopup(){
     }
 
 
-    /*
-     * Wait 5 seconds after entering the site.
-     */
-
     setTimeout(
         function(){
 
@@ -2743,6 +2720,7 @@ function setupRewardPopup(){
 
             const current =
                 getRewardData();
+
 
             if(
                 !current.unlocked
@@ -2796,6 +2774,7 @@ function updateDate(){
     const date =
         new Date();
 
+
     const options = {
 
         weekday:"long",
@@ -2805,6 +2784,7 @@ function updateDate(){
         day:"numeric"
 
     };
+
 
     document.getElementById(
         "todayText"
@@ -2821,7 +2801,7 @@ function updateDate(){
 
 
 /* =========================================================
-   CATEGORY SETUP
+   CATEGORIES
 ========================================================= */
 
 function setupCategories(){
@@ -2850,11 +2830,14 @@ function setupCategories(){
                                 }
                             );
 
+
                         button.classList
                             .add("active");
 
+
                         currentCategory =
                             button.dataset.category;
+
 
                         document.getElementById(
                             "sectionTitle"
@@ -2867,6 +2850,7 @@ function setupCategories(){
                             : capitalize(
                                 currentCategory
                               );
+
 
                         setActiveCategoryNav();
 
@@ -2882,7 +2866,7 @@ function setupCategories(){
 
 
 /* =========================================================
-   SET CATEGORY NAV
+   CATEGORY NAV
 ========================================================= */
 
 function setActiveCategoryNav(){
@@ -2892,6 +2876,7 @@ function setActiveCategoryNav(){
             ".nav-item"
         );
 
+
     navItems.forEach(
         function(item){
 
@@ -2900,6 +2885,7 @@ function setActiveCategoryNav(){
 
         }
     );
+
 
     if(navItems[1]){
 
@@ -2919,10 +2905,12 @@ async function loadNews(){
 
     showLoading();
 
+
     const config =
         categoryConfig[
             currentCategory
         ];
+
 
     if(!config){
 
@@ -2934,20 +2922,24 @@ async function loadNews(){
 
     }
 
+
     try{
 
         const params =
             new URLSearchParams();
+
 
         params.set(
             "apikey",
             API_KEY
         );
 
+
         params.set(
             "language",
             "en"
         );
+
 
         if(config.country){
 
@@ -2958,6 +2950,7 @@ async function loadNews(){
 
         }
 
+
         if(config.category){
 
             params.set(
@@ -2966,6 +2959,7 @@ async function loadNews(){
             );
 
         }
+
 
         if(config.query){
 
@@ -2976,21 +2970,26 @@ async function loadNews(){
 
         }
 
+
         params.set(
             "image",
             "1"
         );
+
 
         params.set(
             "removeduplicate",
             "1"
         );
 
+
         const url =
             `${NEWSDATA_BASE}/latest?${params}`;
 
+
         const response =
             await fetch(url);
+
 
         if(!response.ok){
 
@@ -3000,8 +2999,10 @@ async function loadNews(){
 
         }
 
+
         const data =
             await response.json();
+
 
         if(
             data.status &&
@@ -3010,6 +3011,7 @@ async function loadNews(){
 
             let errorMessage =
                 "NewsData.io returned an error.";
+
 
             if(data.results){
 
@@ -3035,11 +3037,13 @@ async function loadNews(){
 
             }
 
+
             throw new Error(
                 errorMessage
             );
 
         }
+
 
         if(
             !data.results ||
@@ -3113,6 +3117,11 @@ async function loadNews(){
 
         renderTicker();
 
+        /*
+         * FIX:
+         * Check shared article AFTER API data is loaded.
+         */
+
         checkSharedArticle();
 
         checkRewardStatus();
@@ -3125,6 +3134,7 @@ async function loadNews(){
             error
         );
 
+
         showError(
             error.message
         );
@@ -3135,7 +3145,7 @@ async function loadNews(){
 
 
 /* =========================================================
-   RENDER TICKER
+   TICKER
 ========================================================= */
 
 function renderTicker(){
@@ -3146,16 +3156,19 @@ function renderTicker(){
 
     }
 
+
     const track =
         document.getElementById(
             "tickerTrack"
         );
+
 
     const tickerArticles =
         articles.slice(
             0,
             8
         );
+
 
     track.innerHTML =
         tickerArticles
@@ -3192,13 +3205,16 @@ function renderNews(){
             "newsGrid"
         );
 
+
     const featured =
         document.getElementById(
             "featuredContainer"
         );
 
+
     let filtered =
         [...articles];
+
 
     const search =
         document
@@ -3208,6 +3224,7 @@ function renderNews(){
             .value
             .trim()
             .toLowerCase();
+
 
     if(search){
 
@@ -3244,6 +3261,7 @@ function renderNews(){
     if(filtered.length === 0){
 
         featured.innerHTML = "";
+
 
         grid.innerHTML = `
 
@@ -3341,12 +3359,9 @@ function renderNews(){
             .join("");
 
 
-    /*
-     * Keep trending section updated if unlocked.
-     */
-
     const reward =
         getRewardData();
+
 
     if(reward.unlocked){
 
@@ -3367,6 +3382,7 @@ function createCard(article){
         savedArticles.includes(
             article.id
         );
+
 
     return `
 
@@ -3471,9 +3487,27 @@ function openArticle(id){
     if(!article){
 
         /*
-         * If article isn't currently loaded,
-         * don't show a broken article page.
+         * Try restoring article from shared
+         * URL storage.
          */
+
+        const shared =
+            getSharedArticleData();
+
+
+        if(
+            shared &&
+            String(shared.id) === String(id)
+        ){
+
+            openSharedArticle(
+                shared
+            );
+
+            return;
+
+        }
+
 
         showToast(
             "Article is not available right now."
@@ -3483,6 +3517,19 @@ function openArticle(id){
 
     }
 
+
+    renderArticlePage(
+        article
+    );
+
+}
+
+
+/* =========================================================
+   RENDER ARTICLE PAGE
+========================================================= */
+
+function renderArticlePage(article){
 
     const saved =
         savedArticles.includes(
@@ -3603,14 +3650,29 @@ function openArticle(id){
         .classList
         .add("active");
 
+
     document.body.style.overflow =
         "hidden";
 
 
     /*
-     * Put only the article ID into the hash.
+     * Store complete article locally.
      *
-     * This keeps the VarthaNow link small.
+     * This is the important fix.
+     *
+     * When someone receives a shared VarthaNow
+     * link, their browser can restore the article
+     * even if the article is no longer in the
+     * current API result.
+     */
+
+    saveSharedArticleData(
+        article
+    );
+
+
+    /*
+     * Only ID goes in the visible URL.
      */
 
     const newHash =
@@ -3639,6 +3701,76 @@ function openArticle(id){
 
 
 /* =========================================================
+   SHARED ARTICLE STORAGE
+========================================================= */
+
+function saveSharedArticleData(article){
+
+    try{
+
+        localStorage.setItem(
+            "lastSharedArticle",
+            JSON.stringify(article)
+        );
+
+    }
+    catch(error){
+
+        console.warn(
+            "Could not save shared article",
+            error
+        );
+
+    }
+
+}
+
+
+function getSharedArticleData(){
+
+    try{
+
+        const data =
+            JSON.parse(
+                localStorage.getItem(
+                    "lastSharedArticle"
+                ) || "null"
+            );
+
+
+        if(data && data.id){
+
+            return data;
+
+        }
+
+    }
+    catch(error){
+
+        return null;
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =========================================================
+   OPEN SHARED ARTICLE
+========================================================= */
+
+function openSharedArticle(article){
+
+    renderArticlePage(
+        article
+    );
+
+}
+
+
+/* =========================================================
    CLOSE ARTICLE
 ========================================================= */
 
@@ -3651,13 +3783,10 @@ function closeArticle(){
         .classList
         .remove("active");
 
+
     document.body.style.overflow =
         "";
 
-
-    /*
-     * Remove article hash.
-     */
 
     if(
         window.location.hash
@@ -3677,7 +3806,7 @@ function closeArticle(){
 
 
 /* =========================================================
-   WHATSAPP SHARE
+   WHATSAPP SHARE — FIXED
 ========================================================= */
 
 function shareWhatsApp(
@@ -3711,12 +3840,22 @@ function shareWhatsApp(
 
 
     /*
+     * Save the article information locally
+     * before sharing.
+     */
+
+    saveSharedArticleData(
+        article
+    );
+
+
+    /*
      * IMPORTANT:
      *
-     * Only the article ID is included
-     * in the VarthaNow URL.
+     * Use the current canonical VarthaNow page.
      *
-     * This prevents the huge URL problem.
+     * This prevents the previous problem where
+     * the link could redirect to a homepage.
      */
 
     const shortLink =
@@ -3753,7 +3892,7 @@ function shareWhatsApp(
 
 
 /* =========================================================
-   CHECK SHARED ARTICLE
+   CHECK SHARED ARTICLE — FIXED
 ========================================================= */
 
 function checkSharedArticle(){
@@ -3813,7 +3952,8 @@ function checkSharedArticle(){
 
 
     /*
-     * Search the currently loaded news.
+     * FIRST:
+     * Search current API articles.
      */
 
     const article =
@@ -3833,7 +3973,46 @@ function checkSharedArticle(){
             article.id
         );
 
+        return;
+
     }
+
+
+    /*
+     * SECOND:
+     * Restore from saved shared article.
+     *
+     * This is what fixes fresh shared links.
+     */
+
+    const shared =
+        getSharedArticleData();
+
+
+    if(
+        shared &&
+        String(shared.id) ===
+        String(articleId)
+    ){
+
+        openSharedArticle(
+            shared
+        );
+
+        return;
+
+    }
+
+
+    /*
+     * THIRD:
+     * If the article isn't available,
+     * don't silently send the user home.
+     */
+
+    showToast(
+        "This shared article has expired."
+    );
 
 }
 
@@ -3861,7 +4040,7 @@ function setupSearch(){
 
 
 /* =========================================================
-   SAVE ARTICLE
+   SAVE
 ========================================================= */
 
 function toggleSave(id){
@@ -3879,6 +4058,7 @@ function toggleSave(id){
                 }
             );
 
+
         showToast(
             "Removed from saved"
         );
@@ -3887,6 +4067,7 @@ function toggleSave(id){
     else{
 
         savedArticles.push(id);
+
 
         showToast(
             "Article saved ⭐"
@@ -4125,6 +4306,7 @@ function refreshNews(){
         "Getting latest news..."
     );
 
+
     loadNews();
 
 }
@@ -4160,7 +4342,7 @@ function toggleTheme(){
 
 
 /* =========================================================
-   UPDATE THEME ICON
+   THEME ICON
 ========================================================= */
 
 function updateThemeIcon(){
@@ -4207,7 +4389,7 @@ function loadTheme(){
 
 
 /* =========================================================
-   LOADING UI
+   LOADING
 ========================================================= */
 
 function showLoading(){
@@ -4282,7 +4464,7 @@ function showLoading(){
 
 
 /* =========================================================
-   ERROR UI
+   ERROR
 ========================================================= */
 
 function showError(message){
@@ -4381,7 +4563,7 @@ function showToast(message){
 
 
 /* =========================================================
-   TIME FORMAT
+   TIME
 ========================================================= */
 
 function formatTime(dateString){
@@ -4527,7 +4709,7 @@ function escapeHTML(text){
 
 
 /* =========================================================
-   JAVASCRIPT STRING ESCAPE
+   JS ESCAPE
 ========================================================= */
 
 function escapeJS(text){
@@ -4584,6 +4766,7 @@ window.addEventListener(
                 .classList
                 .remove("active");
 
+
             document.body.style.overflow =
                 "";
 
@@ -4594,14 +4777,8 @@ window.addEventListener(
 
 
 /* =========================================================
-   VISIBILITY CHECK
+   VISIBILITY
 ========================================================= */
-
-/*
- * When the visitor returns to VarthaNow
- * after visiting the ad, immediately check
- * how much time has passed.
- */
 
 document.addEventListener(
     "visibilitychange",
@@ -4613,8 +4790,10 @@ document.addEventListener(
 
             checkRewardStatus();
 
+
             const data =
                 getRewardData();
+
 
             if(
                 data.startedAt &&
@@ -4629,7 +4808,10 @@ document.addEventListener(
                         ) / 1000
                     );
 
-                if(elapsed < REWARD_SECONDS){
+
+                if(
+                    elapsed < REWARD_SECONDS
+                ){
 
                     showRewardPopup();
 
@@ -4639,6 +4821,15 @@ document.addEventListener(
 
             }
 
+
+            /*
+             * FIX:
+             * Also check the shared article when
+             * returning to the page.
+             */
+
+            checkSharedArticle();
+
         }
 
     }
@@ -4646,7 +4837,7 @@ document.addEventListener(
 
 
 /* =========================================================
-   MIDNIGHT / DAILY RESET CHECK
+   DAILY RESET
 ========================================================= */
 
 setInterval(
@@ -4655,17 +4846,14 @@ setInterval(
         const data =
             getRewardData();
 
+
         if(
             data.unlocked
         ){
 
-            /*
-             * getRewardData() automatically creates
-             * a fresh record when the date changes.
-             */
-
             const fresh =
                 getRewardData();
+
 
             if(
                 !fresh.unlocked
@@ -4678,6 +4866,7 @@ setInterval(
                     .classList
                     .remove("show");
 
+
                 setupRewardPopup();
 
             }
@@ -4686,6 +4875,35 @@ setInterval(
 
     },
     60000
+);
+
+
+/* =========================================================
+   PAGE LOAD SHARED ARTICLE
+========================================================= */
+
+/*
+ * This extra check runs shortly after page load.
+ *
+ * It gives the API time to return first,
+ * while still allowing locally stored shared
+ * article data to open immediately.
+ */
+
+window.addEventListener(
+    "load",
+    function(){
+
+        setTimeout(
+            function(){
+
+                checkSharedArticle();
+
+            },
+            1200
+        );
+
+    }
 );
 
 </script>
