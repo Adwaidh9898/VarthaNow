@@ -27,7 +27,6 @@ html{
 }
 
 :root{
-
     --bg:#f5f7fb;
     --card:#ffffff;
     --text:#111827;
@@ -37,17 +36,12 @@ html{
     --primary:#2563eb;
     --primary2:#4f46e5;
 
-    --danger:#ef4444;
-
     --nav:#ffffff;
 
-    --shadow:
-        0 8px 30px rgba(15,23,42,.07);
-
+    --shadow:0 8px 30px rgba(15,23,42,.07);
 }
 
 body.dark{
-
     --bg:#080d18;
     --card:#111827;
     --text:#f8fafc;
@@ -59,9 +53,7 @@ body.dark{
 
     --nav:#111827;
 
-    --shadow:
-        0 8px 30px rgba(0,0,0,.30);
-
+    --shadow:0 8px 30px rgba(0,0,0,.30);
 }
 
 
@@ -70,7 +62,6 @@ body.dark{
 ========================================================= */
 
 body{
-
     font-family:
         Inter,
         system-ui,
@@ -87,27 +78,20 @@ body{
     transition:
         background .25s,
         color .25s;
-
 }
 
 button,
 input{
-
     font:inherit;
-
 }
 
 button{
-
     border:0;
     cursor:pointer;
-
 }
 
 img{
-
     display:block;
-
 }
 
 
@@ -116,22 +100,18 @@ img{
 ========================================================= */
 
 .top-ad{
-
     width:100%;
+    min-height:50px;
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
-    padding:
-        8px 10px 5px;
+    padding:5px 10px;
 
-    min-height:65px;
+    background:var(--bg);
 
     overflow:hidden;
-
 }
 
 
@@ -139,54 +119,30 @@ img{
    LOGO AREA
 ========================================================= */
 
-.brand-area{
-
+.logo-area{
     width:100%;
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
-    padding:
-        8px 20px 18px;
+    padding:14px 20px 18px;
 
+    background:var(--bg);
 }
 
-.brand-logo{
+.logo-image{
+    display:block;
 
-    width:
-        min(420px,88vw);
+    width:auto;
+    max-width:340px;
+    height:auto;
 
-    max-height:130px;
+    max-height:105px;
 
     object-fit:contain;
 
-    object-position:center;
-
-    border-radius:16px;
-
-}
-
-.logo-fallback{
-
-    display:none;
-
-    font-size:32px;
-
-    font-weight:900;
-
-    letter-spacing:-1.5px;
-
-    color:var(--text);
-
-}
-
-.logo-fallback span{
-
-    color:var(--primary);
-
+    border-radius:10px;
 }
 
 
@@ -195,63 +151,56 @@ img{
 ========================================================= */
 
 .header{
-
     position:sticky;
-
     top:0;
 
     z-index:50;
 
-    background:
-        rgba(245,247,251,.88);
+    background:rgba(245,247,251,.88);
 
-    backdrop-filter:
-        blur(18px);
+    backdrop-filter:blur(18px);
 
-    -webkit-backdrop-filter:
-        blur(18px);
+    -webkit-backdrop-filter:blur(18px);
 
-    border-bottom:
-        1px solid var(--border);
-
+    border-bottom:1px solid var(--border);
 }
 
 body.dark .header{
-
-    background:
-        rgba(8,13,24,.88);
-
+    background:rgba(8,13,24,.88);
 }
 
 .header-inner{
-
     max-width:1200px;
 
-    height:72px;
+    height:64px;
 
     margin:auto;
 
-    padding:
-        0 20px;
+    padding:0 20px;
 
     display:flex;
 
     align-items:center;
 
-    justify-content:flex-end;
+    justify-content:space-between;
+}
 
+.header-brand{
+    font-size:18px;
+    font-weight:800;
+    letter-spacing:-.5px;
+}
+
+.header-brand span{
+    color:var(--primary);
 }
 
 .header-actions{
-
     display:flex;
-
     gap:8px;
-
 }
 
 .icon-btn{
-
     width:42px;
     height:42px;
 
@@ -261,23 +210,18 @@ body.dark .header{
 
     color:var(--text);
 
-    border:
-        1px solid var(--border);
+    border:1px solid var(--border);
 
     display:grid;
-
     place-items:center;
 
     font-size:18px;
 
     transition:.2s;
-
 }
 
 .icon-btn:active{
-
     transform:scale(.94);
-
 }
 
 
@@ -286,20 +230,15 @@ body.dark .header{
 ========================================================= */
 
 .app{
-
     max-width:1200px;
 
     margin:auto;
 
-    padding-bottom:120px;
-
+    padding-bottom:100px;
 }
 
 main{
-
-    padding:
-        28px 20px 40px;
-
+    padding:28px 20px 40px;
 }
 
 
@@ -308,13 +247,10 @@ main{
 ========================================================= */
 
 .greeting{
-
     margin-bottom:20px;
-
 }
 
 .greeting small{
-
     color:var(--muted);
 
     font-size:12px;
@@ -322,11 +258,9 @@ main{
     font-weight:700;
 
     letter-spacing:.7px;
-
 }
 
 .greeting h1{
-
     font-size:32px;
 
     line-height:1.15;
@@ -334,7 +268,6 @@ main{
     margin-top:5px;
 
     letter-spacing:-1.2px;
-
 }
 
 
@@ -343,7 +276,6 @@ main{
 ========================================================= */
 
 .search-box{
-
     display:flex;
 
     align-items:center;
@@ -352,30 +284,24 @@ main{
 
     background:var(--card);
 
-    border:
-        1px solid var(--border);
+    border:1px solid var(--border);
 
     border-radius:17px;
 
-    padding:
-        12px 15px;
+    padding:12px 15px;
 
     margin-bottom:20px;
 
     box-shadow:var(--shadow);
-
 }
 
 .search-icon{
-
     color:var(--muted);
 
     font-size:21px;
-
 }
 
 .search-box input{
-
     flex:1;
 
     border:0;
@@ -387,13 +313,10 @@ main{
     color:var(--text);
 
     font-size:15px;
-
 }
 
 .search-box input::placeholder{
-
     color:var(--muted);
-
 }
 
 
@@ -402,7 +325,6 @@ main{
 ========================================================= */
 
 .categories{
-
     display:flex;
 
     gap:9px;
@@ -414,28 +336,22 @@ main{
     margin-bottom:25px;
 
     scrollbar-width:none;
-
 }
 
 .categories::-webkit-scrollbar{
-
     display:none;
-
 }
 
 .category{
-
     flex:none;
 
-    padding:
-        10px 16px;
+    padding:10px 16px;
 
     border-radius:30px;
 
     background:var(--card);
 
-    border:
-        1px solid var(--border);
+    border:1px solid var(--border);
 
     color:var(--muted);
 
@@ -444,17 +360,13 @@ main{
     font-weight:750;
 
     transition:.2s;
-
 }
 
 .category:active{
-
     transform:scale(.95);
-
 }
 
 .category.active{
-
     color:white;
 
     background:
@@ -469,7 +381,6 @@ main{
     box-shadow:
         0 6px 18px
         rgba(37,99,235,.22);
-
 }
 
 
@@ -478,7 +389,6 @@ main{
 ========================================================= */
 
 .section-head{
-
     display:flex;
 
     align-items:center;
@@ -486,19 +396,15 @@ main{
     justify-content:space-between;
 
     margin-bottom:15px;
-
 }
 
 .section-head h2{
-
     font-size:20px;
 
     letter-spacing:-.5px;
-
 }
 
 .refresh-btn{
-
     display:flex;
 
     align-items:center;
@@ -512,7 +418,6 @@ main{
     font-weight:750;
 
     font-size:13px;
-
 }
 
 
@@ -521,7 +426,6 @@ main{
 ========================================================= */
 
 .featured{
-
     position:relative;
 
     overflow:hidden;
@@ -537,29 +441,22 @@ main{
     box-shadow:var(--shadow);
 
     cursor:pointer;
-
 }
 
 .featured img{
-
     width:100%;
     height:100%;
 
     object-fit:cover;
 
-    transition:
-        transform .5s;
-
+    transition:transform .5s;
 }
 
 .featured:hover img{
-
     transform:scale(1.04);
-
 }
 
 .featured::after{
-
     content:"";
 
     position:absolute;
@@ -573,11 +470,9 @@ main{
             rgba(0,0,0,.25) 60%,
             transparent
         );
-
 }
 
 .featured-content{
-
     position:absolute;
 
     z-index:2;
@@ -589,22 +484,18 @@ main{
     padding:25px;
 
     color:#fff;
-
 }
 
 .breaking{
-
     display:inline-flex;
 
     align-items:center;
 
     gap:7px;
 
-    background:
-        rgba(239,68,68,.95);
+    background:rgba(239,68,68,.95);
 
-    padding:
-        6px 10px;
+    padding:6px 10px;
 
     border-radius:8px;
 
@@ -615,11 +506,9 @@ main{
     text-transform:uppercase;
 
     margin-bottom:11px;
-
 }
 
 .breaking i{
-
     width:6px;
     height:6px;
 
@@ -628,19 +517,15 @@ main{
     border-radius:50%;
 
     animation:pulse 1s infinite;
-
 }
 
 @keyframes pulse{
-
     50%{
         opacity:.3;
     }
-
 }
 
 .featured h2{
-
     font-size:27px;
 
     line-height:1.2;
@@ -648,11 +533,9 @@ main{
     max-width:800px;
 
     letter-spacing:-.7px;
-
 }
 
 .featured-meta{
-
     display:flex;
 
     gap:9px;
@@ -662,7 +545,6 @@ main{
     color:#d1d5db;
 
     font-size:12px;
-
 }
 
 
@@ -671,22 +553,17 @@ main{
 ========================================================= */
 
 .news-grid{
-
     display:grid;
 
-    grid-template-columns:
-        repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
 
     gap:17px;
-
 }
 
 .news-card{
-
     background:var(--card);
 
-    border:
-        1px solid var(--border);
+    border:1px solid var(--border);
 
     border-radius:19px;
 
@@ -699,17 +576,13 @@ main{
         box-shadow .22s;
 
     box-shadow:var(--shadow);
-
 }
 
 .news-card:hover{
-
     transform:translateY(-4px);
-
 }
 
 .card-image{
-
     height:190px;
 
     position:relative;
@@ -717,30 +590,22 @@ main{
     overflow:hidden;
 
     background:#e5e7eb;
-
 }
 
 .card-image img{
-
     width:100%;
     height:100%;
 
     object-fit:cover;
 
-    transition:
-        transform .4s;
-
+    transition:transform .4s;
 }
 
-.news-card:hover
-.card-image img{
-
+.news-card:hover .card-image img{
     transform:scale(1.05);
-
 }
 
 .bookmark{
-
     position:absolute;
 
     right:10px;
@@ -751,8 +616,7 @@ main{
 
     border-radius:11px;
 
-    background:
-        rgba(0,0,0,.55);
+    background:rgba(0,0,0,.55);
 
     color:#fff;
 
@@ -760,21 +624,16 @@ main{
 
     place-items:center;
 
-    backdrop-filter:
-        blur(6px);
+    backdrop-filter:blur(6px);
 
     font-size:18px;
-
 }
 
 .card-content{
-
     padding:16px;
-
 }
 
 .card-category{
-
     color:var(--primary);
 
     text-transform:uppercase;
@@ -784,24 +643,19 @@ main{
     font-weight:850;
 
     letter-spacing:.7px;
-
 }
 
 .news-card h3{
-
     font-size:17px;
 
     line-height:1.32;
 
-    margin:
-        7px 0;
+    margin:7px 0;
 
     letter-spacing:-.3px;
-
 }
 
 .description{
-
     color:var(--muted);
 
     font-size:13px;
@@ -815,11 +669,9 @@ main{
     -webkit-box-orient:vertical;
 
     overflow:hidden;
-
 }
 
 .card-meta{
-
     display:flex;
 
     justify-content:space-between;
@@ -831,7 +683,6 @@ main{
     font-size:11px;
 
     margin-top:13px;
-
 }
 
 
@@ -840,7 +691,6 @@ main{
 ========================================================= */
 
 .skeleton{
-
     background:
         linear-gradient(
             90deg,
@@ -849,55 +699,42 @@ main{
             var(--border) 75%
         );
 
-    background-size:
-        200% 100%;
+    background-size:200% 100%;
 
-    animation:
-        skeletonMove 1.4s infinite;
-
+    animation:skeletonMove 1.4s infinite;
 }
 
 @keyframes skeletonMove{
-
     to{
         background-position:-200% 0;
     }
-
 }
 
 
 /* =========================================================
-   EMPTY / ERROR
+   EMPTY
 ========================================================= */
 
 .empty{
-
     text-align:center;
 
-    padding:
-        60px 20px;
+    padding:60px 20px;
 
     color:var(--muted);
 
-    grid-column:
-        1 / -1;
-
+    grid-column:1 / -1;
 }
 
 .empty-icon{
-
     font-size:45px;
 
     margin-bottom:12px;
-
 }
 
 .empty h3{
-
     color:var(--text);
 
     margin-bottom:6px;
-
 }
 
 
@@ -906,7 +743,6 @@ main{
 ========================================================= */
 
 .article-view{
-
     display:none;
 
     position:fixed;
@@ -918,28 +754,21 @@ main{
     background:var(--bg);
 
     overflow-y:auto;
-
 }
 
 .article-view.active{
-
     display:block;
-
 }
 
 .article-container{
-
     max-width:850px;
 
     margin:auto;
 
-    padding:
-        20px 20px 120px;
-
+    padding:20px 20px 100px;
 }
 
 .article-top{
-
     display:flex;
 
     justify-content:space-between;
@@ -947,19 +776,9 @@ main{
     align-items:center;
 
     margin-bottom:25px;
-
-    position:sticky;
-
-    top:0;
-
-    z-index:10;
-
-    padding-bottom:10px;
-
 }
 
 .back-btn{
-
     display:flex;
 
     align-items:center;
@@ -970,27 +789,16 @@ main{
 
     color:var(--text);
 
-    border:
-        1px solid var(--border);
+    border:1px solid var(--border);
 
-    padding:
-        10px 15px;
+    padding:10px 15px;
 
     border-radius:12px;
 
     font-weight:750;
-
-    box-shadow:var(--shadow);
-
 }
 
-
-/* =========================================================
-   ARTICLE
-========================================================= */
-
 .article-category{
-
     color:var(--primary);
 
     font-size:11px;
@@ -1000,24 +808,19 @@ main{
     text-transform:uppercase;
 
     letter-spacing:.7px;
-
 }
 
 .article-title{
-
     font-size:41px;
 
     line-height:1.1;
 
     letter-spacing:-1.6px;
 
-    margin:
-        8px 0 15px;
-
+    margin:8px 0 15px;
 }
 
 .article-meta{
-
     display:flex;
 
     flex-wrap:wrap;
@@ -1029,11 +832,9 @@ main{
     font-size:13px;
 
     margin-bottom:20px;
-
 }
 
 .article-image{
-
     width:100%;
 
     max-height:520px;
@@ -1043,11 +844,9 @@ main{
     border-radius:22px;
 
     margin-bottom:25px;
-
 }
 
 .article-description{
-
     font-size:18px;
 
     line-height:1.75;
@@ -1055,82 +854,24 @@ main{
     color:var(--text);
 
     margin-bottom:25px;
-
-    white-space:pre-line;
-
 }
 
 
 /* =========================================================
-   ARTICLE ACTIONS
+   ARTICLE BUTTONS
 ========================================================= */
 
-.article-actions{
-
+.article-buttons{
     display:flex;
 
     flex-wrap:wrap;
 
     gap:10px;
 
-    margin-top:20px;
-
-}
-
-.whatsapp-share{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:9px;
-
-    background:#25D366;
-
-    color:#fff;
-
-    padding:
-        13px 18px;
-
-    border-radius:13px;
-
-    font-weight:850;
-
-    text-decoration:none;
-
-    transition:.2s;
-
-    box-shadow:
-        0 7px 18px
-        rgba(37,211,102,.22);
-
-}
-
-.whatsapp-share:hover{
-
-    transform:translateY(-2px);
-
-}
-
-.whatsapp-share:active{
-
-    transform:scale(.97);
-
-}
-
-.whatsapp-logo{
-
-    width:22px;
-    height:22px;
-
-    display:block;
-
+    margin-top:10px;
 }
 
 .read-original{
-
     display:inline-flex;
 
     align-items:center;
@@ -1148,15 +889,50 @@ main{
 
     color:white;
 
-    padding:
-        13px 19px;
+    padding:13px 19px;
 
     border-radius:13px;
 
     font-weight:800;
 
     text-decoration:none;
+}
 
+.whatsapp-share{
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:9px;
+
+    background:#25D366;
+
+    color:white;
+
+    padding:13px 19px;
+
+    border-radius:13px;
+
+    font-weight:850;
+
+    text-decoration:none;
+
+    transition:.2s;
+}
+
+.whatsapp-share:hover{
+    filter:brightness(.95);
+
+    transform:translateY(-1px);
+}
+
+.whatsapp-logo{
+    width:20px;
+    height:20px;
+
+    display:block;
 }
 
 
@@ -1165,10 +941,9 @@ main{
 ========================================================= */
 
 .bottom-ad{
-
     width:100%;
 
-    min-height:65px;
+    min-height:70px;
 
     display:flex;
 
@@ -1176,11 +951,11 @@ main{
 
     align-items:center;
 
-    padding:
-        8px 10px 90px;
+    padding:10px;
+
+    margin-top:20px;
 
     overflow:hidden;
-
 }
 
 
@@ -1189,7 +964,6 @@ main{
 ========================================================= */
 
 .bottom-nav{
-
     position:fixed;
 
     z-index:60;
@@ -1200,25 +974,20 @@ main{
 
     transform:translateX(-50%);
 
-    width:
-        min(520px,calc(100% - 24px));
+    width:min(520px,calc(100% - 24px));
 
     height:68px;
 
     background:
         rgba(255,255,255,.93);
 
-    backdrop-filter:
-        blur(18px);
+    backdrop-filter:blur(18px);
 
-    -webkit-backdrop-filter:
-        blur(18px);
+    -webkit-backdrop-filter:blur(18px);
 
-    border:
-        1px solid var(--border);
+    border:1px solid var(--border);
 
-    border-radius:
-        20px 20px 0 0;
+    border-radius:20px 20px 0 0;
 
     display:flex;
 
@@ -1229,18 +998,13 @@ main{
     box-shadow:
         0 -8px 30px
         rgba(0,0,0,.08);
-
 }
 
 body.dark .bottom-nav{
-
-    background:
-        rgba(17,24,39,.95);
-
+    background:rgba(17,24,39,.95);
 }
 
 .nav-item{
-
     background:none;
 
     color:var(--muted);
@@ -1260,19 +1024,14 @@ body.dark .bottom-nav{
     font-weight:750;
 
     min-width:65px;
-
 }
 
 .nav-icon{
-
     font-size:19px;
-
 }
 
 .nav-item.active{
-
     color:var(--primary);
-
 }
 
 
@@ -1281,7 +1040,6 @@ body.dark .bottom-nav{
 ========================================================= */
 
 .toast{
-
     position:fixed;
 
     z-index:200;
@@ -1290,15 +1048,13 @@ body.dark .bottom-nav{
 
     bottom:85px;
 
-    transform:
-        translate(-50%,20px);
+    transform:translate(-50%,20px);
 
     background:#111827;
 
     color:#fff;
 
-    padding:
-        11px 17px;
+    padding:11px 17px;
 
     border-radius:12px;
 
@@ -1311,19 +1067,12 @@ body.dark .bottom-nav{
     transition:.25s;
 
     white-space:nowrap;
-
-    max-width:
-        calc(100% - 30px);
-
 }
 
 .toast.show{
-
     opacity:1;
 
-    transform:
-        translate(-50%,0);
-
+    transform:translate(-50%,0);
 }
 
 
@@ -1334,30 +1083,17 @@ body.dark .bottom-nav{
 @media(min-width:850px){
 
     .news-grid{
-
-        grid-template-columns:
-            repeat(3,1fr);
-
+        grid-template-columns:repeat(3,1fr);
     }
 
     .featured{
-
         height:450px;
-
     }
 
     .bottom-nav{
-
         border-radius:18px;
 
         bottom:18px;
-
-    }
-
-    .bottom-ad{
-
-        padding-bottom:25px;
-
     }
 
 }
@@ -1370,96 +1106,67 @@ body.dark .bottom-nav{
 @media(max-width:600px){
 
     main{
-
-        padding:
-            22px 14px 35px;
-
+        padding:22px 14px 35px;
     }
 
     .header-inner{
-
-        padding:
-            0 14px;
-
+        padding:0 14px;
     }
 
-    .brand-area{
-
-        padding:
-            5px 14px 14px;
-
+    .logo-area{
+        padding:12px 15px 15px;
     }
 
-    .brand-logo{
+    .logo-image{
+        max-width:300px;
+        max-height:90px;
+    }
 
-        width:
-            min(360px,92vw);
-
-        max-height:105px;
-
+    .header-brand{
+        font-size:16px;
     }
 
     .greeting h1{
-
         font-size:27px;
-
     }
 
     .featured{
-
         height:335px;
 
         border-radius:20px;
-
     }
 
     .featured-content{
-
         padding:18px;
-
     }
 
     .featured h2{
-
         font-size:22px;
-
     }
 
     .news-grid{
-
         grid-template-columns:1fr;
-
     }
 
     .card-image{
-
         height:210px;
-
     }
 
     .article-title{
-
         font-size:31px;
-
     }
 
     .article-image{
-
         border-radius:18px;
-
     }
 
-    .article-actions{
-
+    .article-buttons{
         flex-direction:column;
-
     }
 
-    .whatsapp-share,
-    .read-original{
-
+    .read-original,
+    .whatsapp-share{
         width:100%;
-
     }
 
 }
@@ -1471,22 +1178,20 @@ body.dark .bottom-nav{
 
 @media(max-width:370px){
 
-    .logo-fallback{
+    .logo-image{
+        max-width:260px;
+    }
 
-        font-size:27px;
-
+    .header-brand{
+        font-size:15px;
     }
 
     .greeting h1{
-
         font-size:24px;
-
     }
 
     .featured h2{
-
         font-size:20px;
-
     }
 
 }
@@ -1499,11 +1204,9 @@ body.dark .bottom-nav{
 @media(prefers-reduced-motion:reduce){
 
     *{
-
         animation-duration:.01ms !important;
 
         transition-duration:.01ms !important;
-
     }
 
 }
@@ -1541,24 +1244,14 @@ body.dark .bottom-nav{
      BIG VARTHANOW LOGO
 ======================================================= -->
 
-<div class="brand-area">
+<div class="logo-area">
 
     <img
         src="varthanow.jpg"
-        class="brand-logo"
+        class="logo-image"
         alt="VarthaNow"
-        onerror="
-            this.style.display='none';
-            document.getElementById('logoFallback').style.display='block';
-        "
+        onerror="this.style.display='none';"
     >
-
-    <div
-        id="logoFallback"
-        class="logo-fallback"
-    >
-        Vartha<span>Now</span>
-    </div>
 
 </div>
 
@@ -1570,6 +1263,10 @@ body.dark .bottom-nav{
 <header class="header">
 
     <div class="header-inner">
+
+        <div class="header-brand">
+            Latest <span>News</span>
+        </div>
 
         <div class="header-actions">
 
@@ -1645,14 +1342,12 @@ body.dark .bottom-nav{
             🔥 Latest
         </button>
 
-
         <button
             class="category"
             data-category="kerala"
         >
             🌴 Kerala
         </button>
-
 
         <button
             class="category"
@@ -1661,14 +1356,12 @@ body.dark .bottom-nav{
             🇮🇳 India
         </button>
 
-
         <button
             class="category"
             data-category="world"
         >
             🌍 World
         </button>
-
 
         <button
             class="category"
@@ -1677,14 +1370,12 @@ body.dark .bottom-nav{
             💼 Business
         </button>
 
-
         <button
             class="category"
             data-category="sports"
         >
             ⚽ Sports
         </button>
-
 
         <button
             class="category"
@@ -1693,7 +1384,6 @@ body.dark .bottom-nav{
             💻 Technology
         </button>
 
-
         <button
             class="category"
             data-category="entertainment"
@@ -1701,14 +1391,12 @@ body.dark .bottom-nav{
             🎬 Entertainment
         </button>
 
-
         <button
             class="category"
             data-category="science"
         >
             🔬 Science
         </button>
-
 
         <button
             class="category"
@@ -1751,9 +1439,35 @@ body.dark .bottom-nav{
     ></div>
 
 
+    <!-- BOTTOM AD -->
+
+    <div class="bottom-ad">
+
+        <script>
+          atOptions = {
+            'key' : '62a5c09d9e3d076754977cb0383ed2f4',
+            'format' : 'iframe',
+            'height' : 50,
+            'width' : 320,
+            'params' : {}
+          };
+        </script>
+
+        <script src="https://www.highrevenueformat.com/62a5c09d9e3d076754977cb0383ed2f4/invoke.js"></script>
+
+    </div>
+
+
 </main>
 
 </div>
+
+
+<!-- =======================================================
+     PROFITABLE RATE CPM AD
+======================================================= -->
+
+<script src="https://pl31037130.profitableratecpmnetwork.com/64/5b/4d/645b4d13504d2790f072d43077f759a2.js"></script>
 
 
 <!-- =======================================================
@@ -1767,7 +1481,6 @@ body.dark .bottom-nav{
 
     <div class="article-container">
 
-
         <div class="article-top">
 
             <button
@@ -1776,7 +1489,6 @@ body.dark .bottom-nav{
             >
                 ← Back
             </button>
-
 
             <button
                 class="icon-btn"
@@ -1787,32 +1499,9 @@ body.dark .bottom-nav{
 
         </div>
 
-
         <div id="articleContent"></div>
 
-
     </div>
-
-</div>
-
-
-<!-- =======================================================
-     BOTTOM AD
-======================================================= -->
-
-<div class="bottom-ad">
-
-<script>
-  atOptions = {
-    'key' : '62a5c09d9e3d076754977cb0383ed2f4',
-    'format' : 'iframe',
-    'height' : 50,
-    'width' : 320,
-    'params' : {}
-  };
-</script>
-
-<script src="https://www.highrevenueformat.com/62a5c09d9e3d076754977cb0383ed2f4/invoke.js"></script>
 
 </div>
 
@@ -1822,7 +1511,6 @@ body.dark .bottom-nav{
 ======================================================= -->
 
 <nav class="bottom-nav">
-
 
     <button
         class="nav-item active"
@@ -1887,7 +1575,6 @@ body.dark .bottom-nav{
 
     </button>
 
-
 </nav>
 
 
@@ -1899,13 +1586,6 @@ body.dark .bottom-nav{
     class="toast"
     id="toast"
 ></div>
-
-
-<!-- =======================================================
-     PROFITABLE RATE CPM AD
-======================================================= -->
-
-<script src="https://pl31037130.profitableratecpmnetwork.com/64/5b/4d/645b4d13504d2790f072d43077f759a2.js"></script>
 
 
 <script>
@@ -2020,6 +1700,8 @@ document.addEventListener(
 
         loadNews();
 
+        checkSharedArticle();
+
     }
 );
 
@@ -2033,7 +1715,6 @@ function updateDate(){
     const date =
         new Date();
 
-
     const options = {
 
         weekday:"long",
@@ -2043,7 +1724,6 @@ function updateDate(){
         day:"numeric"
 
     };
-
 
     document.getElementById(
         "todayText"
@@ -2082,14 +1762,11 @@ function setupCategories(){
 
                         });
 
-
                     button.classList
                         .add("active");
 
-
                     currentCategory =
                         button.dataset.category;
-
 
                     document.getElementById(
                         "sectionTitle"
@@ -2102,7 +1779,6 @@ function setupCategories(){
                         : capitalize(
                             currentCategory
                           );
-
 
                     setActiveCategoryNav();
 
@@ -2148,10 +1824,8 @@ async function loadNews(){
 
     showLoading();
 
-
     const config =
         categoryConfig[currentCategory];
-
 
     if(!config){
 
@@ -2163,24 +1837,20 @@ async function loadNews(){
 
     }
 
-
     try{
 
         const params =
             new URLSearchParams();
-
 
         params.set(
             "apikey",
             API_KEY
         );
 
-
         params.set(
             "language",
             "en"
         );
-
 
         if(config.country){
 
@@ -2191,7 +1861,6 @@ async function loadNews(){
 
         }
 
-
         if(config.category){
 
             params.set(
@@ -2200,7 +1869,6 @@ async function loadNews(){
             );
 
         }
-
 
         if(config.query){
 
@@ -2211,22 +1879,18 @@ async function loadNews(){
 
         }
 
-
         params.set(
             "image",
             "1"
         );
-
 
         params.set(
             "removeduplicate",
             "1"
         );
 
-
         const url =
             `${NEWSDATA_BASE}/latest?${params}`;
-
 
         console.log(
             "Fetching NewsData.io:",
@@ -2236,10 +1900,8 @@ async function loadNews(){
             )
         );
 
-
         const response =
             await fetch(url);
-
 
         if(!response.ok){
 
@@ -2249,16 +1911,13 @@ async function loadNews(){
 
         }
 
-
         const data =
             await response.json();
-
 
         console.log(
             "NewsData response:",
             data
         );
-
 
         if(
             data.status &&
@@ -2267,7 +1926,6 @@ async function loadNews(){
 
             let errorMessage =
                 "NewsData.io returned an error.";
-
 
             if(data.results){
 
@@ -2292,13 +1950,11 @@ async function loadNews(){
 
             }
 
-
             throw new Error(
                 errorMessage
             );
 
         }
-
 
         if(
             !data.results ||
@@ -2310,7 +1966,6 @@ async function loadNews(){
             );
 
         }
-
 
         articles =
             data.results
@@ -2365,18 +2020,14 @@ async function loadNews(){
                     }
                 );
 
-
         renderNews();
 
-
         /*
-         * If somebody opened a VarthaNow shared
-         * article link, open that article after
+         * If this page was opened from a WhatsApp
+         * shared article link, try opening it after
          * the news has loaded.
          */
-
-        openSharedArticleFromURL();
-
+        checkSharedArticle();
 
     }
     catch(error){
@@ -2385,7 +2036,6 @@ async function loadNews(){
             "NewsData.io error:",
             error
         );
-
 
         showError(
             error.message
@@ -2407,16 +2057,13 @@ function renderNews(){
             "newsGrid"
         );
 
-
     const featured =
         document.getElementById(
             "featuredContainer"
         );
 
-
     let filtered =
         [...articles];
-
 
     const search =
         document
@@ -2426,7 +2073,6 @@ function renderNews(){
             .value
             .trim()
             .toLowerCase();
-
 
     if(search){
 
@@ -2459,7 +2105,6 @@ function renderNews(){
 
     }
 
-
     if(filtered.length === 0){
 
         featured.innerHTML = "";
@@ -2488,16 +2133,14 @@ function renderNews(){
 
     }
 
-
     const first =
         filtered[0];
-
 
     featured.innerHTML = `
 
         <div
             class="featured"
-            onclick="openArticleById('${escapeHTML(first.id)}')"
+            onclick="openArticle('${escapeJS(first.id)}')"
         >
 
             <img
@@ -2506,7 +2149,6 @@ function renderNews(){
                 loading="eager"
                 onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'"
             >
-
 
             <div class="featured-content">
 
@@ -2518,11 +2160,9 @@ function renderNews(){
 
                 </div>
 
-
                 <h2>
                     ${escapeHTML(first.title)}
                 </h2>
-
 
                 <div class="featured-meta">
 
@@ -2546,10 +2186,8 @@ function renderNews(){
 
     `;
 
-
     const rest =
         filtered.slice(1);
-
 
     grid.innerHTML =
         rest
@@ -2570,12 +2208,11 @@ function createCard(article){
             article.id
         );
 
-
     return `
 
         <article
             class="news-card"
-            onclick="openArticleById('${escapeHTML(article.id)}')"
+            onclick="openArticle('${escapeJS(article.id)}')"
         >
 
             <div class="card-image">
@@ -2587,10 +2224,9 @@ function createCard(article){
                     onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'"
                 >
 
-
                 <button
                     class="bookmark"
-                    onclick="event.stopPropagation();toggleSave('${escapeHTML(article.id)}')"
+                    onclick="event.stopPropagation();toggleSave('${escapeJS(article.id)}')"
                     aria-label="Save article"
                 >
 
@@ -2600,9 +2236,7 @@ function createCard(article){
 
             </div>
 
-
             <div class="card-content">
-
 
                 <div class="card-category">
 
@@ -2612,7 +2246,6 @@ function createCard(article){
 
                 </div>
 
-
                 <h3>
 
                     ${escapeHTML(
@@ -2621,7 +2254,6 @@ function createCard(article){
 
                 </h3>
 
-
                 <p class="description">
 
                     ${escapeHTML(
@@ -2629,7 +2261,6 @@ function createCard(article){
                     )}
 
                 </p>
-
 
                 <div class="card-meta">
 
@@ -2641,7 +2272,6 @@ function createCard(article){
 
                     </span>
 
-
                     <span>
 
                         ${escapeHTML(
@@ -2651,7 +2281,6 @@ function createCard(article){
                     </span>
 
                 </div>
-
 
             </div>
 
@@ -2663,10 +2292,10 @@ function createCard(article){
 
 
 /* =========================================================
-   OPEN ARTICLE BY ID
+   OPEN ARTICLE
 ========================================================= */
 
-function openArticleById(id){
+function openArticle(id){
 
     const article =
         articles.find(
@@ -2678,37 +2307,16 @@ function openArticleById(id){
             }
         );
 
-
     if(!article){
 
         return;
 
     }
-
-
-    openArticle(article);
-
-}
-
-
-/* =========================================================
-   OPEN ARTICLE
-========================================================= */
-
-function openArticle(article){
-
-    if(!article){
-
-        return;
-
-    }
-
 
     const saved =
         savedArticles.includes(
             article.id
         );
-
 
     document.getElementById(
         "articleContent"
@@ -2722,7 +2330,6 @@ function openArticle(article){
 
         </div>
 
-
         <h1 class="article-title">
 
             ${escapeHTML(
@@ -2730,7 +2337,6 @@ function openArticle(article){
             )}
 
         </h1>
-
 
         <div class="article-meta">
 
@@ -2742,11 +2348,9 @@ function openArticle(article){
 
             </span>
 
-
             <span>
                 •
             </span>
-
 
             <span>
 
@@ -2756,11 +2360,9 @@ function openArticle(article){
 
             </span>
 
-
             <span>
                 •
             </span>
-
 
             <span>
 
@@ -2772,14 +2374,12 @@ function openArticle(article){
 
         </div>
 
-
         <img
             class="article-image"
             src="${escapeHTML(article.image)}"
             alt=""
             onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'"
         >
-
 
         <div class="article-description">
 
@@ -2789,38 +2389,7 @@ function openArticle(article){
 
         </div>
 
-
-        <div class="article-actions">
-
-
-            <button
-                class="whatsapp-share"
-                onclick="shareOnWhatsApp('${escapeHTML(article.id)}')"
-            >
-
-                <svg
-                    class="whatsapp-logo"
-                    viewBox="0 0 32 32"
-                    aria-hidden="true"
-                >
-
-                    <path
-                        fill="white"
-                        d="M19.11 17.36c-.27-.14-1.59-.78-1.83-.87-.25-.09-.42-.14-.6.14-.18.27-.69.87-.84 1.05-.15.18-.31.2-.58.07-.27-.14-1.13-.42-2.15-1.33-.79-.7-1.33-1.56-1.49-1.82-.16-.27-.02-.41.12-.55.12-.12.27-.31.4-.47.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.47-.07-.14-.6-1.44-.82-1.97-.22-.52-.44-.45-.6-.46h-.51c-.18 0-.47.07-.71.34-.24.27-.93.91-.93 2.22s.96 2.58 1.09 2.76c.14.18 1.89 2.89 4.58 4.05.64.28 1.14.45 1.53.58.64.2 1.22.17 1.68.1.51-.08 1.59-.65 1.82-1.27.22-.62.22-1.15.15-1.27-.06-.12-.24-.18-.51-.31z"
-                    />
-
-                    <path
-                        fill="white"
-                        d="M16.02 3C8.84 3 3 8.82 3 15.98c0 2.29.6 4.44 1.65 6.31L3 29l6.88-1.8a12.9 12.9 0 0 0 6.14 1.55h.01C23.2 28.75 29 22.94 29 15.78 29 8.64 23.2 3 16.02 3zm0 23.7c-1.98 0-3.91-.53-5.6-1.53l-.4-.24-4.08 1.07 1.09-3.98-.26-.41a10.74 10.74 0 0 1-1.65-5.72C5.12 9.98 10 5.12 16.03 5.12c2.92 0 5.67 1.13 7.73 3.18a10.78 10.78 0 0 1 3.2 7.7c0 6.03-4.91 10.7-10.94 10.7z"
-                    />
-
-                </svg>
-
-
-                SHARE ON WHATSAPP
-
-            </button>
-
+        <div class="article-buttons">
 
             <a
                 class="read-original"
@@ -2834,10 +2403,25 @@ function openArticle(article){
             </a>
 
 
+            <a
+                class="whatsapp-share"
+                href="#"
+                onclick="shareWhatsApp(event, '${escapeJS(article.id)}')"
+            >
+
+                <img
+                    class="whatsapp-logo"
+                    src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                    alt="WhatsApp"
+                >
+
+                SHARE ON WHATSAPP
+
+            </a>
+
         </div>
 
     `;
-
 
     document
         .getElementById(
@@ -2845,346 +2429,8 @@ function openArticle(article){
         )
         .classList.add("active");
 
-
     document.body.style.overflow =
         "hidden";
-
-
-    /*
-     * Update browser URL.
-     * The complete article data is encoded into
-     * the hash so the shared VarthaNow link
-     * can recreate the article.
-     */
-
-    try{
-
-        const encoded =
-            encodeArticle(article);
-
-        history.pushState(
-            {
-                article:true
-            },
-            "",
-            `${window.location.pathname}#article=${encoded}`
-        );
-
-    }
-    catch(error){
-
-        console.warn(
-            "Could not update article URL:",
-            error
-        );
-
-    }
-
-
-    document
-        .getElementById(
-            "articleView"
-        )
-        .scrollTop = 0;
-
-}
-
-
-/* =========================================================
-   WHATSAPP SHARE
-========================================================= */
-
-function shareOnWhatsApp(id){
-
-    const article =
-        articles.find(
-            function(item){
-
-                return String(item.id) ===
-                       String(id);
-
-            }
-        );
-
-
-    if(!article){
-
-        showToast(
-            "Article not found"
-        );
-
-        return;
-
-    }
-
-
-    /*
-     * Create a VarthaNow URL containing
-     * the article data.
-     */
-
-    const articleLink =
-        createArticleShareURL(
-            article
-        );
-
-
-    /*
-     * Short WhatsApp message.
-     */
-
-    const message =
-
-        `📰 ${article.title}\n\n` +
-
-        `Read this story on VarthaNow 👇\n` +
-
-        `${articleLink}`;
-
-
-    const whatsappURL =
-        `https://wa.me/?text=${encodeURIComponent(message)}`;
-
-
-    window.open(
-        whatsappURL,
-        "_blank",
-        "noopener,noreferrer"
-    );
-
-}
-
-
-/* =========================================================
-   CREATE ARTICLE SHARE URL
-========================================================= */
-
-function createArticleShareURL(article){
-
-    const encoded =
-        encodeArticle(article);
-
-
-    return (
-        window.location.origin +
-        window.location.pathname +
-        "#article=" +
-        encoded
-    );
-
-}
-
-
-/* =========================================================
-   ENCODE ARTICLE
-========================================================= */
-
-function encodeArticle(article){
-
-    const json =
-        JSON.stringify({
-
-            id:article.id,
-
-            category:article.category,
-
-            title:article.title,
-
-            description:article.description,
-
-            source:article.source,
-
-            time:article.time,
-
-            image:article.image,
-
-            url:article.url
-
-        });
-
-
-    /*
-     * UTF-8 safe Base64 encoding.
-     */
-
-    const bytes =
-        new TextEncoder().encode(
-            json
-        );
-
-
-    let binary = "";
-
-    bytes.forEach(
-        function(byte){
-
-            binary +=
-                String.fromCharCode(byte);
-
-        }
-    );
-
-
-    const base64 =
-        btoa(binary);
-
-
-    /*
-     * Make Base64 URL-safe.
-     */
-
-    return base64
-        .replace(/\+/g,"-")
-        .replace(/\//g,"_")
-        .replace(/=+$/,"");
-
-}
-
-
-/* =========================================================
-   DECODE ARTICLE
-========================================================= */
-
-function decodeArticle(encoded){
-
-    try{
-
-        let base64 =
-            encoded
-                .replace(/-/g,"+")
-                .replace(/_/g,"/");
-
-
-        while(
-            base64.length % 4
-        ){
-
-            base64 += "=";
-
-        }
-
-
-        const binary =
-            atob(base64);
-
-
-        const bytes =
-            Uint8Array.from(
-                binary,
-                function(char){
-
-                    return char.charCodeAt(0);
-
-                }
-            );
-
-
-        const json =
-            new TextDecoder()
-                .decode(bytes);
-
-
-        return JSON.parse(
-            json
-        );
-
-    }
-    catch(error){
-
-        console.error(
-            "Article decode error:",
-            error
-        );
-
-        return null;
-
-    }
-
-}
-
-
-/* =========================================================
-   OPEN SHARED ARTICLE
-========================================================= */
-
-function openSharedArticleFromURL(){
-
-    const hash =
-        window.location.hash;
-
-
-    if(
-        !hash.startsWith(
-            "#article="
-        )
-    ){
-
-        return;
-
-    }
-
-
-    const encoded =
-        hash.substring(
-            "#article=".length
-        );
-
-
-    if(!encoded){
-
-        return;
-
-    }
-
-
-    const sharedArticle =
-        decodeArticle(
-            encoded
-        );
-
-
-    if(!sharedArticle){
-
-        return;
-
-    }
-
-
-    /*
-     * First try to find the fresh API version.
-     */
-
-    const currentArticle =
-        articles.find(
-            function(article){
-
-                return String(article.id) ===
-                       String(sharedArticle.id);
-
-            }
-        );
-
-
-    if(currentArticle){
-
-        openArticle(
-            currentArticle
-        );
-
-    }
-    else{
-
-        /*
-         * If the article isn't in the current
-         * API results, use the article data
-         * embedded inside the shared link.
-         */
-
-        openArticle(
-            sharedArticle
-        );
-
-    }
 
 }
 
@@ -3201,23 +2447,19 @@ function closeArticle(){
         )
         .classList.remove("active");
 
-
     document.body.style.overflow =
         "";
 
-
     /*
-     * Remove article hash from URL.
+     * Remove article hash when going back.
      */
-
     if(
-        window.location.hash.startsWith(
-            "#article="
-        )
+        window.location.hash
+            .startsWith("#article=")
     ){
 
-        history.pushState(
-            {},
+        history.replaceState(
+            null,
             "",
             window.location.pathname +
             window.location.search
@@ -3229,37 +2471,158 @@ function closeArticle(){
 
 
 /* =========================================================
-   BROWSER BACK BUTTON
+   WHATSAPP SHARE
 ========================================================= */
 
-window.addEventListener(
-    "popstate",
-    function(){
+function shareWhatsApp(event,id){
 
-        if(
-            window.location.hash.startsWith(
-                "#article="
-            )
-        ){
+    event.preventDefault();
 
-            openSharedArticleFromURL();
+    const article =
+        articles.find(
+            function(item){
 
-        }
-        else{
+                return String(item.id) ===
+                       String(id);
 
-            document
-                .getElementById(
-                    "articleView"
-                )
-                .classList.remove("active");
+            }
+        );
 
-            document.body.style.overflow =
-                "";
+    if(!article){
 
-        }
+        showToast(
+            "Article not found"
+        );
+
+        return;
 
     }
-);
+
+
+    /*
+     * IMPORTANT:
+     *
+     * We ONLY put the article ID in the URL.
+     *
+     * We DO NOT put the title, description,
+     * image, source, etc. in the URL.
+     *
+     * This keeps the shared link very short.
+     */
+
+    const shortLink =
+        window.location.origin +
+        window.location.pathname +
+        "#article=" +
+        encodeURIComponent(
+            article.id
+        );
+
+
+    const message =
+        "📰 " +
+        article.title +
+        "\n\n" +
+        "Read this news on VarthaNow 👇\n" +
+        shortLink;
+
+
+    const whatsappURL =
+        "https://wa.me/?text=" +
+        encodeURIComponent(
+            message
+        );
+
+
+    window.open(
+        whatsappURL,
+        "_blank",
+        "noopener,noreferrer"
+    );
+
+}
+
+
+/* =========================================================
+   CHECK SHARED ARTICLE
+========================================================= */
+
+function checkSharedArticle(){
+
+    const hash =
+        window.location.hash;
+
+    if(
+        !hash.startsWith("#article=")
+    ){
+
+        return;
+
+    }
+
+
+    const encodedId =
+        hash.substring(
+            "#article=".length
+        );
+
+
+    if(!encodedId){
+
+        return;
+
+    }
+
+
+    let articleId = "";
+
+    try{
+
+        articleId =
+            decodeURIComponent(
+                encodedId
+            );
+
+    }
+    catch(error){
+
+        articleId =
+            encodedId;
+
+    }
+
+
+    if(!articleId){
+
+        return;
+
+    }
+
+
+    /*
+     * Wait until NewsData articles are available.
+     */
+
+    const article =
+        articles.find(
+            function(item){
+
+                return String(item.id) ===
+                       String(articleId);
+
+            }
+        );
+
+
+    if(article){
+
+        openArticle(
+            article.id
+        );
+
+    }
+
+}
 
 
 /* =========================================================
@@ -3303,7 +2666,6 @@ function toggleSave(id){
                 }
             );
 
-
         showToast(
             "Removed from saved"
         );
@@ -3313,13 +2675,11 @@ function toggleSave(id){
 
         savedArticles.push(id);
 
-
         showToast(
             "Article saved ⭐"
         );
 
     }
-
 
     localStorage.setItem(
         "savedArticles",
@@ -3328,41 +2688,7 @@ function toggleSave(id){
         )
     );
 
-
     renderNews();
-
-
-    /*
-     * If article view is currently open,
-     * update its saved state.
-     */
-
-    const article =
-        articles.find(
-            function(item){
-
-                return String(item.id) ===
-                       String(id);
-
-            }
-        );
-
-
-    if(
-        article &&
-        document
-            .getElementById(
-                "articleView"
-            )
-            .classList
-            .contains("active")
-    ){
-
-        openArticle(
-            article
-        );
-
-    }
 
 }
 
@@ -3374,7 +2700,6 @@ function toggleSave(id){
 function showSaved(button){
 
     setActiveNav(button);
-
 
     const saved =
         articles.filter(
@@ -3388,17 +2713,14 @@ function showSaved(button){
             }
         );
 
-
     document.getElementById(
         "sectionTitle"
     ).textContent =
         "Saved Articles";
 
-
     document.getElementById(
         "featuredContainer"
     ).innerHTML = "";
-
 
     if(saved.length === 0){
 
@@ -3429,7 +2751,6 @@ function showSaved(button){
 
     }
 
-
     document.getElementById(
         "newsGrid"
     ).innerHTML =
@@ -3448,10 +2769,8 @@ function navHome(button){
 
     setActiveNav(button);
 
-
     currentCategory =
         "all";
-
 
     document
         .querySelectorAll(".category")
@@ -3464,7 +2783,6 @@ function navHome(button){
             }
         );
 
-
     document
         .querySelector(
             '[data-category="all"]'
@@ -3472,15 +2790,12 @@ function navHome(button){
         .classList
         .add("active");
 
-
     document.getElementById(
         "sectionTitle"
     ).textContent =
         "Top Stories";
 
-
     loadNews();
-
 
     window.scrollTo({
 
@@ -3500,7 +2815,6 @@ function navHome(button){
 function scrollCategories(button){
 
     setActiveNav(button);
-
 
     document
         .getElementById(
@@ -3525,15 +2839,12 @@ function focusSearch(button){
 
     setActiveNav(button);
 
-
     const input =
         document.getElementById(
             "searchInput"
         );
 
-
     input.focus();
-
 
     window.scrollTo({
 
@@ -3563,7 +2874,6 @@ function setActiveNav(button){
             }
         );
 
-
     button.classList
         .add("active");
 
@@ -3580,7 +2890,6 @@ function refreshNews(){
         "Getting latest news..."
     );
 
-
     loadNews();
 
 }
@@ -3596,11 +2905,9 @@ function toggleTheme(){
         .classList
         .toggle("dark");
 
-
     const dark =
         document.body.classList
             .contains("dark");
-
 
     localStorage.setItem(
         "theme",
@@ -3608,7 +2915,6 @@ function toggleTheme(){
             ? "dark"
             : "light"
     );
-
 
     updateThemeIcon();
 
@@ -3625,21 +2931,12 @@ function updateThemeIcon(){
         document.body.classList
             .contains("dark");
 
-
-    document
-        .querySelectorAll(
-            "#themeBtn, .article-top .icon-btn"
-        )
-        .forEach(
-            function(button){
-
-                button.textContent =
-                    dark
-                        ? "☀️"
-                        : "🌙";
-
-            }
-        );
+    document.getElementById(
+        "themeBtn"
+    ).textContent =
+        dark
+            ? "☀️"
+            : "🌙";
 
 }
 
@@ -3655,7 +2952,6 @@ function loadTheme(){
             "theme"
         );
 
-
     if(theme === "dark"){
 
         document.body
@@ -3663,7 +2959,6 @@ function loadTheme(){
             .add("dark");
 
     }
-
 
     updateThemeIcon();
 
@@ -3686,7 +2981,6 @@ function showLoading(){
 
     `;
 
-
     document.getElementById(
         "newsGrid"
     ).innerHTML =
@@ -3704,7 +2998,6 @@ function showLoading(){
                                 class="card-image skeleton"
                             ></div>
 
-
                             <div
                                 class="card-content"
                             >
@@ -3718,7 +3011,6 @@ function showLoading(){
                                     "
                                 ></div>
 
-
                                 <div
                                     class="skeleton"
                                     style="
@@ -3726,7 +3018,6 @@ function showLoading(){
                                         margin-bottom:8px
                                     "
                                 ></div>
-
 
                                 <div
                                     class="skeleton"
@@ -3758,7 +3049,6 @@ function showError(message){
         "featuredContainer"
     ).innerHTML = "";
 
-
     document.getElementById(
         "newsGrid"
     ).innerHTML = `
@@ -3769,11 +3059,9 @@ function showError(message){
                 ⚠️
             </div>
 
-
             <h3>
                 Couldn't load news
             </h3>
-
 
             <p>
                 ${message
@@ -3782,9 +3070,7 @@ function showError(message){
                 }
             </p>
 
-
             <br>
-
 
             <button
                 onclick="loadNews()"
@@ -3814,7 +3100,6 @@ function showError(message){
 
 let toastTimer;
 
-
 function showToast(message){
 
     const toast =
@@ -3822,19 +3107,15 @@ function showToast(message){
             "toast"
         );
 
-
     toast.textContent =
         message;
-
 
     toast.classList
         .add("show");
 
-
     clearTimeout(
         toastTimer
     );
-
 
     toastTimer =
         setTimeout(
@@ -3862,10 +3143,8 @@ function formatTime(dateString){
 
     }
 
-
     const date =
         new Date(dateString);
-
 
     if(
         Number.isNaN(
@@ -3877,10 +3156,8 @@ function formatTime(dateString){
 
     }
 
-
     const now =
         new Date();
-
 
     const difference =
         Math.floor(
@@ -3889,13 +3166,11 @@ function formatTime(dateString){
             ) / 60000
         );
 
-
     if(difference < 1){
 
         return "Just now";
 
     }
-
 
     if(difference < 60){
 
@@ -3903,12 +3178,10 @@ function formatTime(dateString){
 
     }
 
-
     const hours =
         Math.floor(
             difference / 60
         );
-
 
     if(hours < 24){
 
@@ -3916,19 +3189,16 @@ function formatTime(dateString){
 
     }
 
-
     const days =
         Math.floor(
             hours / 24
         );
-
 
     if(days < 7){
 
         return `${days} day${days > 1 ? "s" : ""} ago`;
 
     }
-
 
     return date.toLocaleDateString(
         "en-IN",
@@ -3952,7 +3222,6 @@ function capitalize(text){
         return "";
 
     }
-
 
     return text.charAt(0).toUpperCase()
         + text.slice(1);
@@ -3994,6 +3263,71 @@ function escapeHTML(text){
         );
 
 }
+
+
+/* =========================================================
+   JAVASCRIPT STRING ESCAPE
+========================================================= */
+
+function escapeJS(text){
+
+    return String(text)
+
+        .replaceAll(
+            "\\",
+            "\\\\"
+        )
+
+        .replaceAll(
+            "'",
+            "\\'"
+        )
+
+        .replaceAll(
+            "\n",
+            "\\n"
+        )
+
+        .replaceAll(
+            "\r",
+            "\\r"
+        );
+
+}
+
+
+/* =========================================================
+   BROWSER BACK BUTTON
+========================================================= */
+
+window.addEventListener(
+    "hashchange",
+    function(){
+
+        if(
+            window.location.hash
+                .startsWith("#article=")
+        ){
+
+            checkSharedArticle();
+
+        }
+        else{
+
+            document
+                .getElementById(
+                    "articleView"
+                )
+                .classList
+                .remove("active");
+
+            document.body.style.overflow =
+                "";
+
+        }
+
+    }
+);
 
 </script>
 
